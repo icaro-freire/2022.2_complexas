@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Complexas 2022.2: Variáveis Complexas</title>
+
+  <meta property="description" itemprop="description" content="Pequeno relatório das notas 😉"/>
+
+
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Complexas 2022.2: Variáveis Complexas"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Pequeno relatório das notas 😉"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="Complexas 2022.2"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Complexas 2022.2: Variáveis Complexas"/>
+  <meta property="twitter:description" content="Pequeno relatório das notas 😉"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Variáveis Complexas"]},{"type":"character","attributes":{},"value":["Pequeno relatório das notas 😉\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+  <script type="application/javascript">
+
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+
+  function createFuseIndex() {
+
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+
+    createFuseIndex()
+      .then(function(fuse) {
+
+        // make search box visible
+        searchEl.classList.remove('hidden');
+
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  });
+
+  </script>
+
+  <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
+
+  /* Algolioa Autocomplete */
+
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  </style>
+
+
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+    font-size: 100%;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+  <script src="site_libs/plotly-binding-4.10.1/plotly.js"></script>
+  <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+  <script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+  <link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Variáveis Complexas","description":"Pequeno relatório das notas 😉","authors":[]}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="index.html" class="title">Complexas 2022.2</a>
+</div>
+<div class="nav-right">
+<a href="index.html">Home</a>
+<a href="about.html">Sobre</a>
+<a href="https://github.com/icaro-freire/2022.2_complexas">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Variáveis Complexas</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Pequeno relatório das notas 😉</p></p>
+</div>
+
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#sobre-a-prova-01" id="toc-sobre-a-prova-01">Sobre a Prova 01</a>
+<ul>
+<li><a href="#boxplot-diagrama-de-caixas" id="toc-boxplot-diagrama-de-caixas">Boxplot (Diagrama de Caixas)</a></li>
+<li><a href="#teste-de-normalidade-shapirowilk" id="toc-teste-de-normalidade-shapirowilk">Teste de Normalidade (Shapiro–Wilk)</a></li>
+<li><a href="#gráfico-de-densidade" id="toc-gráfico-de-densidade">Gráfico de Densidade</a></li>
+</ul></li>
+<li><a href="#palavras-finais" id="toc-palavras-finais">Palavras Finais</a></li>
+</ul>
+</nav>
+</div>
+<h2 id="sobre-a-prova-01">Sobre a Prova 01</h2>
+<p>Tentarei explanar sobre o resultado da Prova 01.
+A análise será geral, ou seja, não colocarei o nome de vocês em parte alguma da
+análise.
+Portanto, esse pequeno relatório não é uma exposição dos resultados individuais (farei isso em sala), mas uma visão geral do resultado/desempenho da turma nessa primeira avaliação.</p>
+<p>Inicialmente, vamos sumarisar algumas informações:</p>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">Q2</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">media</th>
+<th style="text-align: right;">desvio_padrao</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pela tabela acima, vemos que a nota mínima e a máxima foram, respectivamente,
+<span class="math inline">\(1.0\)</span> e <span class="math inline">\(8.2\)</span>. Além disso, a média das notas foi de <span class="math inline">\(4.4\)</span>, com desvio padrão de <span class="math inline">\(2.0\)</span>.
+Para entendermos o que são <span class="math inline">\(Q_1, Q_2,\text{ e } Q_3\)</span>, chamados <em>quartis</em>, vamos lembrar o que é a <em>mediana</em> dos dados.</p>
+<p>Se ordenarmos os valores das notas (são 13 notas), quer de forma decrescente ou crescente, a mediana é o valor central (no caso, o 7º termo). Podemos dizer que 50% das observações estão abaixo da mediana e 50% acima. Ou seja, dividimos o conjunto dados em duas partes.</p>
+<p>Ora, podemos expandir um pouco essa ideia e nos perguntarmos: como encontrarmos valores numéricos, cujas posições dividem as obvervações em 4 partes? Para isso, precisamos de três valores: o primeiro divide o conjunto de dados em até 25% das observações; o segundo divide em até 50% (coincidindo com a mediana); e, o terceiro divide o conjunto de dados em até 75% das observações.
+Esses são o primeiro quartil, <span class="math inline">\(Q_1\)</span>; segundo quartil, <span class="math inline">\(Q_2\)</span> (mediana); e, o terceito quartil, <span class="math inline">\(Q_3\)</span>.</p>
+<p>Sabendo disso, podemos voltar na tabela e verificarmos que <span class="math inline">\(25\%\)</span> das notas estão abaixo de <span class="math inline">\(3.1\)</span> pontos; <span class="math inline">\(50\%\)</span> abaixo de <span class="math inline">\(3.8\)</span> pontos; e, <span class="math inline">\(75\%\)</span> estão abaixo de <span class="math inline">\(6.0\)</span> pontos.</p>
+<p>Existe um tipo de gráfico que resume essas informações: <em>boxplot</em> (ou <em>diagrama de caixa</em>). Veja abaixo:</p>
+<h3 id="boxplot-diagrama-de-caixas">Boxplot (Diagrama de Caixas)</h3>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<p>Na “caixa”, de baixo para cima, o primeiro segmento horizontal é o <span class="math inline">\(Q_1\)</span>; o segundo
+segmento horizontal é o <span class="math inline">\(Q_2\)</span> (ou seja, a <em>mediana</em>); e, o terceiro segmento horizontal é o <span class="math inline">\(Q_3\)</span>.
+A linha vertical, abaixo de <span class="math inline">\(Q_1\)</span>, vai até <span class="math inline">\(1.5\)</span> vezes o <em>intervalo interquartil</em> (<span class="math inline">\(IQ\)</span>). Este último é a diferença entre o terceiro e o primeiro quartil (<span class="math inline">\(IQ = Q_3 - Q_1\)</span>).
+Como $IQ = 6 - 3.1 = 2.9 $, a linha vertical poderia ir até $Q_3 - 1.5 IQ = 3.1 - 1.5 = -1.25 $. Entretanto, como a menor nota foi <span class="math inline">\(1.0\)</span>, paramos nela.
+De forma semelhante, a linha vertical acima de <span class="math inline">\(Q_3\)</span> poderia ir até <span class="math inline">\(Q_3 + 1.5\cdot IQ = 6 + 1.5 \cdot 2.9 = 10.35\)</span>. Mas, como a maior nota desses dados foi <span class="math inline">\(8.2\)</span>, paramos nela.
+Se existisse algum ponto abaixo de <span class="math inline">\(Q_1 - 1.5\cdot IQ\)</span> ou acima de <span class="math inline">\(Q_3 + 1.5\cdot IQ\)</span>, diríamos que esses pontos são <em>outliers</em> (pontos extremos, ou “fora da curva”).</p>
+<p>Do exposto, observando novamente o gráfico, podemos notar que a mediana está próxima ao primeiro quartil.
+Isso pode significar que há uma concentração de notas nesse intervalo (entre <span class="math inline">\(1\)</span> e <span class="math inline">\(4\)</span>). Consequentemente, a parte superior da caixa, mostra uma maior dispersão dos dados, ou seja, poucas notas espalham-se entre <span class="math inline">\(4\)</span> e <span class="math inline">\(8\)</span>.</p>
+<p>Para melhorar essa visualização, valor inserir no <em>boxplot</em> pontos que representam as 13 notas (passe o <em>mouse</em> sobre o gráfico para colher informações).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b46133103a494ede1ae6" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-b46133103a494ede1ae6">{"x":{"data":[{"x":[1,1,1,1,1,1,1,1,1,1,1,1,1],"y":[7.7,1,3.1,3.8,4.4,8.2,4.5,6,3.6,3,3.2,3,6],"hoverinfo":"y","type":"box","fillcolor":"rgba(173,216,230,1)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"showlegend":false,"xaxis":"x","yaxis":"y","frame":null},{"x":[1.24652899038047,1.16969356108457,0.735328462161124,0.782045992650092,0.929008054733276,1.12480641044676,1.17628101967275,1.08865050785244,0.794064665585756,1.3776981221512,1.173424705863,0.647855735756457,1.03369452618062],"y":[7.7302440231666,1.03540527796373,3.12568689245731,3.81362843628973,4.37824267206714,8.21647046305239,4.46479334512726,6.01794435750693,3.63826987881213,3.01462242018431,3.22735488172621,2.97697916487232,5.99713779719546],"text":["x: <br />prova1: 7.7","x: <br />prova1: 1.0","x: <br />prova1: 3.1","x: <br />prova1: 3.8","x: <br />prova1: 4.4","x: <br />prova1: 8.2","x: <br />prova1: 4.5","x: <br />prova1: 6.0","x: <br />prova1: 3.6","x: <br />prova1: 3.0","x: <br />prova1: 3.2","x: <br />prova1: 3.0","x: <br />prova1: 6.0"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":45.4063926940639,"r":7.30593607305936,"b":30.1369863013699,"l":31.4155251141553},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Boxplot das Notas","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,1.6],"tickmode":"array","ticktext":[""],"tickvals":[1],"categoryorder":"array","categoryarray":[""],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Prova 1","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.63917647684738,8.57729398620501],"tickmode":"array","ticktext":["2","4","6","8"],"tickvals":[2,4,6,8],"categoryorder":"array","categoryarray":["2","4","6","8"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Notas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8b9f4d0c24a":{"x":{},"y":{},"type":"box"},"8b9f60c6f7f6":{"x":{},"y":{}}},"cur_data":"8b9f4d0c24a","visdat":{"8b9f4d0c24a":["function (y) ","x"],"8b9f60c6f7f6":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Claramente, o resultado não um cenário ideal que um professor desejaria aos seus alunos.
+Mas, percebe-se que não é algo atípico, visto que espera-se que existam poucas notas muito baixas; poucas notas muito altas; e que a maioria das notas fiquem próximas à média.
+Em outras palavras, esperamos que, por conta da aleatoriedade, essa distribuição seja normal (ou Gaussiana).</p>
+<h3 id="teste-de-normalidade-shapirowilk">Teste de Normalidade (Shapiro–Wilk)</h3>
+<p>Existem testes para verificação da normalidade. Um bastante conhecido e eficiente é o Teste de Shapiro–Wilk.
+Basicamente ele testa as seguintes hipóteses:</p>
+<p><span class="math display">\[\begin{align*} H_0: &amp;\text{ Os dados possuem distribuição normal}\\ H_1: &amp;\text{ Os dados não seguem a distribuição normal}\end{align*}\]</span></p>
+<p>Se <span class="math inline">\(p &lt; 0.05\)</span>, o teste indica a rejeição de <span class="math inline">\(H_0\)</span>.</p>
+<p>Calculando Shapiro-Wilk para os valores das notas, encontramos:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  notas_prova1$prova1
+W = 0.93065, p-value = 0.3475</code></pre>
+</div>
+<p>Note que <span class="math inline">\(p = 0.3475 &gt; 0.05\)</span>. Logo, <strong>não</strong> rejeitamos <span class="math inline">\(H_0\)</span>. O que mostra a normalidade dos dados.</p>
+<h3 id="gráfico-de-densidade">Gráfico de Densidade</h3>
+<p>Como os dados são normais, uma forma de visualização apropriada é o gráfico de densidade.
+Se você lembra do Histograma, não terá dificuldades em interpretar o Gráfico de Densidade, visto que é possível entendê-lo como uma “suavização” do histograma.</p>
+<p>No gráfico, a área abaixo da curva é 1. Portanto, o eixo y é dimensionado para isso.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-72bc5d7544ae66e65775" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-72bc5d7544ae66e65775">{"x":{"data":[{"x":[1,1.01409001956947,1.02818003913894,1.04227005870841,1.05636007827789,1.07045009784736,1.08454011741683,1.0986301369863,1.11272015655577,1.12681017612524,1.14090019569472,1.15499021526419,1.16908023483366,1.18317025440313,1.1972602739726,1.21135029354207,1.22544031311155,1.23953033268102,1.25362035225049,1.26771037181996,1.28180039138943,1.2958904109589,1.30998043052838,1.32407045009785,1.33816046966732,1.35225048923679,1.36634050880626,1.38043052837573,1.39452054794521,1.40861056751468,1.42270058708415,1.43679060665362,1.45088062622309,1.46497064579256,1.47906066536204,1.49315068493151,1.50724070450098,1.52133072407045,1.53542074363992,1.54951076320939,1.56360078277886,1.57769080234834,1.59178082191781,1.60587084148728,1.61996086105675,1.63405088062622,1.64814090019569,1.66223091976517,1.67632093933464,1.69041095890411,1.70450097847358,1.71859099804305,1.73268101761252,1.746771037182,1.76086105675147,1.77495107632094,1.78904109589041,1.80313111545988,1.81722113502935,1.83131115459883,1.8454011741683,1.85949119373777,1.87358121330724,1.88767123287671,1.90176125244618,1.91585127201566,1.92994129158513,1.9440313111546,1.95812133072407,1.97221135029354,1.98630136986301,2.00039138943248,2.01448140900196,2.02857142857143,2.0426614481409,2.05675146771037,2.07084148727984,2.08493150684932,2.09902152641879,2.11311154598826,2.12720156555773,2.1412915851272,2.15538160469667,2.16947162426614,2.18356164383562,2.19765166340509,2.21174168297456,2.22583170254403,2.2399217221135,2.25401174168297,2.26810176125245,2.28219178082192,2.29628180039139,2.31037181996086,2.32446183953033,2.3385518590998,2.35264187866928,2.36673189823875,2.38082191780822,2.39491193737769,2.40900195694716,2.42309197651663,2.43718199608611,2.45127201565558,2.46536203522505,2.47945205479452,2.49354207436399,2.50763209393346,2.52172211350294,2.53581213307241,2.54990215264188,2.56399217221135,2.57808219178082,2.59217221135029,2.60626223091977,2.62035225048924,2.63444227005871,2.64853228962818,2.66262230919765,2.67671232876712,2.69080234833659,2.70489236790607,2.71898238747554,2.73307240704501,2.74716242661448,2.76125244618395,2.77534246575342,2.7894324853229,2.80352250489237,2.81761252446184,2.83170254403131,2.84579256360078,2.85988258317025,2.87397260273973,2.8880626223092,2.90215264187867,2.91624266144814,2.93033268101761,2.94442270058708,2.95851272015656,2.97260273972603,2.9866927592955,3.00078277886497,3.01487279843444,3.02896281800391,3.04305283757339,3.05714285714286,3.07123287671233,3.0853228962818,3.09941291585127,3.11350293542074,3.12759295499022,3.14168297455969,3.15577299412916,3.16986301369863,3.1839530332681,3.19804305283757,3.21213307240704,3.22622309197652,3.24031311154599,3.25440313111546,3.26849315068493,3.2825831702544,3.29667318982387,3.31076320939335,3.32485322896282,3.33894324853229,3.35303326810176,3.36712328767123,3.3812133072407,3.39530332681018,3.40939334637965,3.42348336594912,3.43757338551859,3.45166340508806,3.46575342465753,3.47984344422701,3.49393346379648,3.50802348336595,3.52211350293542,3.53620352250489,3.55029354207436,3.56438356164384,3.57847358121331,3.59256360078278,3.60665362035225,3.62074363992172,3.63483365949119,3.64892367906066,3.66301369863014,3.67710371819961,3.69119373776908,3.70528375733855,3.71937377690802,3.7334637964775,3.74755381604697,3.76164383561644,3.77573385518591,3.78982387475538,3.80391389432485,3.81800391389432,3.8320939334638,3.84618395303327,3.86027397260274,3.87436399217221,3.88845401174168,3.90254403131115,3.91663405088063,3.9307240704501,3.94481409001957,3.95890410958904,3.97299412915851,3.98708414872798,4.00117416829746,4.01526418786693,4.0293542074364,4.04344422700587,4.05753424657534,4.07162426614481,4.08571428571429,4.09980430528376,4.11389432485323,4.1279843444227,4.14207436399217,4.15616438356164,4.17025440313112,4.18434442270059,4.19843444227006,4.21252446183953,4.226614481409,4.24070450097847,4.25479452054794,4.26888454011742,4.28297455968689,4.29706457925636,4.31115459882583,4.3252446183953,4.33933463796478,4.35342465753425,4.36751467710372,4.38160469667319,4.39569471624266,4.40978473581213,4.4238747553816,4.43796477495108,4.45205479452055,4.46614481409002,4.48023483365949,4.49432485322896,4.50841487279843,4.52250489236791,4.53659491193738,4.55068493150685,4.56477495107632,4.57886497064579,4.59295499021526,4.60704500978474,4.62113502935421,4.63522504892368,4.64931506849315,4.66340508806262,4.67749510763209,4.69158512720156,4.70567514677104,4.71976516634051,4.73385518590998,4.74794520547945,4.76203522504892,4.7761252446184,4.79021526418787,4.80430528375734,4.81839530332681,4.83248532289628,4.84657534246575,4.86066536203522,4.8747553816047,4.88884540117417,4.90293542074364,4.91702544031311,4.93111545988258,4.94520547945205,4.95929549902153,4.973385518591,4.98747553816047,5.00156555772994,5.01565557729941,5.02974559686888,5.04383561643836,5.05792563600783,5.0720156555773,5.08610567514677,5.10019569471624,5.11428571428571,5.12837573385519,5.14246575342466,5.15655577299413,5.1706457925636,5.18473581213307,5.19882583170254,5.21291585127202,5.22700587084149,5.24109589041096,5.25518590998043,5.2692759295499,5.28336594911937,5.29745596868884,5.31154598825832,5.32563600782779,5.33972602739726,5.35381604696673,5.3679060665362,5.38199608610567,5.39608610567515,5.41017612524462,5.42426614481409,5.43835616438356,5.45244618395303,5.4665362035225,5.48062622309198,5.49471624266145,5.50880626223092,5.52289628180039,5.53698630136986,5.55107632093933,5.56516634050881,5.57925636007828,5.59334637964775,5.60743639921722,5.62152641878669,5.63561643835616,5.64970645792564,5.66379647749511,5.67788649706458,5.69197651663405,5.70606653620352,5.72015655577299,5.73424657534246,5.74833659491194,5.76242661448141,5.77651663405088,5.79060665362035,5.80469667318982,5.8187866927593,5.83287671232877,5.84696673189824,5.86105675146771,5.87514677103718,5.88923679060665,5.90332681017613,5.9174168297456,5.93150684931507,5.94559686888454,5.95968688845401,5.97377690802348,5.98786692759295,6.00195694716243,6.0160469667319,6.03013698630137,6.04422700587084,6.05831702544031,6.07240704500978,6.08649706457926,6.10058708414873,6.1146771037182,6.12876712328767,6.14285714285714,6.15694716242661,6.17103718199609,6.18512720156556,6.19921722113503,6.2133072407045,6.22739726027397,6.24148727984344,6.25557729941292,6.26966731898239,6.28375733855186,6.29784735812133,6.3119373776908,6.32602739726027,6.34011741682975,6.35420743639922,6.36829745596869,6.38238747553816,6.39647749510763,6.4105675146771,6.42465753424657,6.43874755381605,6.45283757338552,6.46692759295499,6.48101761252446,6.49510763209393,6.5091976516634,6.52328767123288,6.53737769080235,6.55146771037182,6.56555772994129,6.57964774951076,6.59373776908023,6.60782778864971,6.62191780821918,6.63600782778865,6.65009784735812,6.66418786692759,6.67827788649706,6.69236790606654,6.70645792563601,6.72054794520548,6.73463796477495,6.74872798434442,6.76281800391389,6.77690802348337,6.79099804305284,6.80508806262231,6.81917808219178,6.83326810176125,6.84735812133072,6.86144814090019,6.87553816046967,6.88962818003914,6.90371819960861,6.91780821917808,6.93189823874755,6.94598825831703,6.9600782778865,6.97416829745597,6.98825831702544,7.00234833659491,7.01643835616438,7.03052837573386,7.04461839530333,7.0587084148728,7.07279843444227,7.08688845401174,7.10097847358121,7.11506849315068,7.12915851272016,7.14324853228963,7.1573385518591,7.17142857142857,7.18551859099804,7.19960861056751,7.21369863013699,7.22778864970646,7.24187866927593,7.2559686888454,7.27005870841487,7.28414872798434,7.29823874755382,7.31232876712329,7.32641878669276,7.34050880626223,7.3545988258317,7.36868884540117,7.38277886497065,7.39686888454012,7.41095890410959,7.42504892367906,7.43913894324853,7.453228962818,7.46731898238748,7.48140900195695,7.49549902152642,7.50958904109589,7.52367906066536,7.53776908023483,7.5518590998043,7.56594911937378,7.58003913894325,7.59412915851272,7.60821917808219,7.62230919765166,7.63639921722113,7.65048923679061,7.66457925636008,7.67866927592955,7.69275929549902,7.70684931506849,7.72093933463796,7.73502935420744,7.74911937377691,7.76320939334638,7.77729941291585,7.79138943248532,7.80547945205479,7.81956947162427,7.83365949119374,7.84774951076321,7.86183953033268,7.87592954990215,7.89001956947162,7.9041095890411,7.91819960861057,7.93228962818004,7.94637964774951,7.96046966731898,7.97455968688845,7.98864970645792,8.0027397260274,8.01682974559687,8.03091976516634,8.04500978473581,8.05909980430528,8.07318982387476,8.08727984344423,8.1013698630137,8.11545988258317,8.12954990215264,8.14363992172211,8.15772994129158,8.17181996086106,8.18590998043053,8.2,8.2,8.2,8.18590998043053,8.17181996086106,8.15772994129158,8.14363992172211,8.12954990215264,8.11545988258317,8.1013698630137,8.08727984344423,8.07318982387476,8.05909980430528,8.04500978473581,8.03091976516634,8.01682974559687,8.0027397260274,7.98864970645792,7.97455968688845,7.96046966731898,7.94637964774951,7.93228962818004,7.91819960861057,7.9041095890411,7.89001956947162,7.87592954990215,7.86183953033268,7.84774951076321,7.83365949119374,7.81956947162427,7.80547945205479,7.79138943248532,7.77729941291585,7.76320939334638,7.74911937377691,7.73502935420744,7.72093933463796,7.70684931506849,7.69275929549902,7.67866927592955,7.66457925636008,7.65048923679061,7.63639921722113,7.62230919765166,7.60821917808219,7.59412915851272,7.58003913894325,7.56594911937378,7.5518590998043,7.53776908023483,7.52367906066536,7.50958904109589,7.49549902152642,7.48140900195695,7.46731898238748,7.453228962818,7.43913894324853,7.42504892367906,7.41095890410959,7.39686888454012,7.38277886497065,7.36868884540117,7.3545988258317,7.34050880626223,7.32641878669276,7.31232876712329,7.29823874755382,7.28414872798434,7.27005870841487,7.2559686888454,7.24187866927593,7.22778864970646,7.21369863013699,7.19960861056751,7.18551859099804,7.17142857142857,7.1573385518591,7.14324853228963,7.12915851272016,7.11506849315068,7.10097847358121,7.08688845401174,7.07279843444227,7.0587084148728,7.04461839530333,7.03052837573386,7.01643835616438,7.00234833659491,6.98825831702544,6.97416829745597,6.9600782778865,6.94598825831703,6.93189823874755,6.91780821917808,6.90371819960861,6.88962818003914,6.87553816046967,6.86144814090019,6.84735812133072,6.83326810176125,6.81917808219178,6.80508806262231,6.79099804305284,6.77690802348337,6.76281800391389,6.74872798434442,6.73463796477495,6.72054794520548,6.70645792563601,6.69236790606654,6.67827788649706,6.66418786692759,6.65009784735812,6.63600782778865,6.62191780821918,6.60782778864971,6.59373776908023,6.57964774951076,6.56555772994129,6.55146771037182,6.53737769080235,6.52328767123288,6.5091976516634,6.49510763209393,6.48101761252446,6.46692759295499,6.45283757338552,6.43874755381605,6.42465753424657,6.4105675146771,6.39647749510763,6.38238747553816,6.36829745596869,6.35420743639922,6.34011741682975,6.32602739726027,6.3119373776908,6.29784735812133,6.28375733855186,6.26966731898239,6.25557729941292,6.24148727984344,6.22739726027397,6.2133072407045,6.19921722113503,6.18512720156556,6.17103718199609,6.15694716242661,6.14285714285714,6.12876712328767,6.1146771037182,6.10058708414873,6.08649706457926,6.07240704500978,6.05831702544031,6.04422700587084,6.03013698630137,6.0160469667319,6.00195694716243,5.98786692759295,5.97377690802348,5.95968688845401,5.94559686888454,5.93150684931507,5.9174168297456,5.90332681017613,5.88923679060665,5.87514677103718,5.86105675146771,5.84696673189824,5.83287671232877,5.8187866927593,5.80469667318982,5.79060665362035,5.77651663405088,5.76242661448141,5.74833659491194,5.73424657534246,5.72015655577299,5.70606653620352,5.69197651663405,5.67788649706458,5.66379647749511,5.64970645792564,5.63561643835616,5.62152641878669,5.60743639921722,5.59334637964775,5.57925636007828,5.56516634050881,5.55107632093933,5.53698630136986,5.52289628180039,5.50880626223092,5.49471624266145,5.48062622309198,5.4665362035225,5.45244618395303,5.43835616438356,5.42426614481409,5.41017612524462,5.39608610567515,5.38199608610567,5.3679060665362,5.35381604696673,5.33972602739726,5.32563600782779,5.31154598825832,5.29745596868884,5.28336594911937,5.2692759295499,5.25518590998043,5.24109589041096,5.22700587084149,5.21291585127202,5.19882583170254,5.18473581213307,5.1706457925636,5.15655577299413,5.14246575342466,5.12837573385519,5.11428571428571,5.10019569471624,5.08610567514677,5.0720156555773,5.05792563600783,5.04383561643836,5.02974559686888,5.01565557729941,5.00156555772994,4.98747553816047,4.973385518591,4.95929549902153,4.94520547945205,4.93111545988258,4.91702544031311,4.90293542074364,4.88884540117417,4.8747553816047,4.86066536203522,4.84657534246575,4.83248532289628,4.81839530332681,4.80430528375734,4.79021526418787,4.7761252446184,4.76203522504892,4.74794520547945,4.73385518590998,4.71976516634051,4.70567514677104,4.69158512720156,4.67749510763209,4.66340508806262,4.64931506849315,4.63522504892368,4.62113502935421,4.60704500978474,4.59295499021526,4.57886497064579,4.56477495107632,4.55068493150685,4.53659491193738,4.52250489236791,4.50841487279843,4.49432485322896,4.48023483365949,4.46614481409002,4.45205479452055,4.43796477495108,4.4238747553816,4.40978473581213,4.39569471624266,4.38160469667319,4.36751467710372,4.35342465753425,4.33933463796478,4.3252446183953,4.31115459882583,4.29706457925636,4.28297455968689,4.26888454011742,4.25479452054794,4.24070450097847,4.226614481409,4.21252446183953,4.19843444227006,4.18434442270059,4.17025440313112,4.15616438356164,4.14207436399217,4.1279843444227,4.11389432485323,4.09980430528376,4.08571428571429,4.07162426614481,4.05753424657534,4.04344422700587,4.0293542074364,4.01526418786693,4.00117416829746,3.98708414872798,3.97299412915851,3.95890410958904,3.94481409001957,3.9307240704501,3.91663405088063,3.90254403131115,3.88845401174168,3.87436399217221,3.86027397260274,3.84618395303327,3.8320939334638,3.81800391389432,3.80391389432485,3.78982387475538,3.77573385518591,3.76164383561644,3.74755381604697,3.7334637964775,3.71937377690802,3.70528375733855,3.69119373776908,3.67710371819961,3.66301369863014,3.64892367906066,3.63483365949119,3.62074363992172,3.60665362035225,3.59256360078278,3.57847358121331,3.56438356164384,3.55029354207436,3.53620352250489,3.52211350293542,3.50802348336595,3.49393346379648,3.47984344422701,3.46575342465753,3.45166340508806,3.43757338551859,3.42348336594912,3.40939334637965,3.39530332681018,3.3812133072407,3.36712328767123,3.35303326810176,3.33894324853229,3.32485322896282,3.31076320939335,3.29667318982387,3.2825831702544,3.26849315068493,3.25440313111546,3.24031311154599,3.22622309197652,3.21213307240704,3.19804305283757,3.1839530332681,3.16986301369863,3.15577299412916,3.14168297455969,3.12759295499022,3.11350293542074,3.09941291585127,3.0853228962818,3.07123287671233,3.05714285714286,3.04305283757339,3.02896281800391,3.01487279843444,3.00078277886497,2.9866927592955,2.97260273972603,2.95851272015656,2.94442270058708,2.93033268101761,2.91624266144814,2.90215264187867,2.8880626223092,2.87397260273973,2.85988258317025,2.84579256360078,2.83170254403131,2.81761252446184,2.80352250489237,2.7894324853229,2.77534246575342,2.76125244618395,2.74716242661448,2.73307240704501,2.71898238747554,2.70489236790607,2.69080234833659,2.67671232876712,2.66262230919765,2.64853228962818,2.63444227005871,2.62035225048924,2.60626223091977,2.59217221135029,2.57808219178082,2.56399217221135,2.54990215264188,2.53581213307241,2.52172211350294,2.50763209393346,2.49354207436399,2.47945205479452,2.46536203522505,2.45127201565558,2.43718199608611,2.42309197651663,2.40900195694716,2.39491193737769,2.38082191780822,2.36673189823875,2.35264187866928,2.3385518590998,2.32446183953033,2.31037181996086,2.29628180039139,2.28219178082192,2.26810176125245,2.25401174168297,2.2399217221135,2.22583170254403,2.21174168297456,2.19765166340509,2.18356164383562,2.16947162426614,2.15538160469667,2.1412915851272,2.12720156555773,2.11311154598826,2.09902152641879,2.08493150684932,2.07084148727984,2.05675146771037,2.0426614481409,2.02857142857143,2.01448140900196,2.00039138943248,1.98630136986301,1.97221135029354,1.95812133072407,1.9440313111546,1.92994129158513,1.91585127201566,1.90176125244618,1.88767123287671,1.87358121330724,1.85949119373777,1.8454011741683,1.83131115459883,1.81722113502935,1.80313111545988,1.78904109589041,1.77495107632094,1.76086105675147,1.746771037182,1.73268101761252,1.71859099804305,1.70450097847358,1.69041095890411,1.67632093933464,1.66223091976517,1.64814090019569,1.63405088062622,1.61996086105675,1.60587084148728,1.59178082191781,1.57769080234834,1.56360078277886,1.54951076320939,1.53542074363992,1.52133072407045,1.50724070450098,1.49315068493151,1.47906066536204,1.46497064579256,1.45088062622309,1.43679060665362,1.42270058708415,1.40861056751468,1.39452054794521,1.38043052837573,1.36634050880626,1.35225048923679,1.33816046966732,1.32407045009785,1.30998043052838,1.2958904109589,1.28180039138943,1.26771037181996,1.25362035225049,1.23953033268102,1.22544031311155,1.21135029354207,1.1972602739726,1.18317025440313,1.16908023483366,1.15499021526419,1.14090019569472,1.12681017612524,1.11272015655577,1.0986301369863,1.08454011741683,1.07045009784736,1.05636007827789,1.04227005870841,1.02818003913894,1.01409001956947,1,1],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0608133212299548,0.0611619087979813,0.0615022144182667,0.0618425200385522,0.0621760476648418,0.0625078326989856,0.0628347086771986,0.0631579206897639,0.0634781269462981,0.0637927449229576,0.0641062737844294,0.0644123080323516,0.0647183422802737,0.0650166541270592,0.0653141460248972,0.0656058684131175,0.0658948900123362,0.0661800766846941,0.0664607301650204,0.0667394446869978,0.0670118616698194,0.0672841773534402,0.067548518078003,0.0678128588025657,0.0680709702882986,0.0683274226565427,0.0685795254174655,0.0688283039143048,0.0690745255632063,0.0693158700599671,0.0695563464646366,0.0697905209142356,0.0700246953638345,0.070252687099157,0.0704799781323966,0.0707028284221239,0.0709235438552205,0.0711414321861332,0.0713558994502454,0.0715690114335692,0.071777575937673,0.0719861031310335,0.072189126569974,0.0723921500089145,0.0725911249229235,0.0727889835428694,0.0729841629559335,0.073177245789754,0.0733688490500454,0.0735575561353241,0.0737458060320215,0.0739305466245121,0.0741152872170026,0.0742968599883334,0.0744780507836443,0.0746571476865614,0.0748352110627343,0.0750120679744595,0.0751874302678741,0.0753622840017373,0.0755353738284398,0.0757084619517467,0.0758797085858561,0.0760509552199654,0.076221101049068,0.0763909328693726,0.0765602157162202,0.0767290587314361,0.0768977134692401,0.0770659899316694,0.0772342500476892,0.077402377164197,0.0775705042807047,0.0777388633562233,0.0779072521045492,0.0780760824304667,0.0782451364879148,0.0784146581697688,0.0785847729602777,0.0787552031876188,0.0789267650521187,0.0790983269166186,0.0792717035016695,0.0794450889954902,0.0796201655761774,0.0797957408960881,0.079972714508734,0.08015083505099,0.0803298990511809,0.0805109091007243,0.0806922531430608,0.080876485692796,0.0810607182425311,0.0812480723938795,0.0814358490917124,0.0816261617128552,0.0818177929329817,0.082011231231842,0.082207016265583,0.0824037438418678,0.0826039712022049,0.0828041985625421,0.0830090959121836,0.0832140437450525,0.0834228151531354,0.0836327517474909,0.0838455408852014,0.0840607252729001,0.0842776729616789,0.0844983555973249,0.0847195998894307,0.0849460233995217,0.0851724469096126,0.0854040996420831,0.0856364996320725,0.08587294649603,0.0861115524033028,0.0863529183006929,0.0865979542809335,0.0868443625505014,0.0870960483845304,0.0873477342185594,0.0876061729079813,0.0878647249158438,0.0881286621281177,0.0883942940770289,0.0886638474006638,0.0889367713933642,0.0892120581346193,0.089492485464751,0.0897736227362188,0.0900617646975179,0.0903499066588171,0.0906449381500763,0.0909410067864754,0.0912423363181688,0.0915465451023192,0.0918542918516566,0.0921668562799066,0.0924811401950432,0.0928022782875439,0.0931234163800446,0.0934531528395596,0.0937830855349095,0.0941198257468103,0.0944587771814819,0.094802647160446,0.095150844824164,0.0955019717033911,0.0958596464626376,0.0962181584844494,0.0965855444673487,0.096952930450248,0.0973289053273881,0.0977062396643724,0.0980900992678215,0.0984776216836745,0.0988694997340738,0.0992674519881956,0.0996674827415226,0.10007610791454,0.100484733087557,0.100903967715169,0.101323509341316,0.101751409481667,0.102182110527691,0.102618809933159,0.10306091162581,0.103506543071662,0.103960283577162,0.10441497870671,0.104880591666885,0.10534620462706,0.105822193783218,0.106299906714248,0.106785438559839,0.107275471120824,0.107770663406366,0.108273225546088,0.108778192432773,0.109293482424175,0.109808772415577,0.110336536646975,0.110864739019948,0.111402663205606,0.111943946589676,0.112492114758601,0.113046629648034,0.113605119135355,0.114172995590035,0.114741876783745,0.115323222079939,0.115904567376133,0.11649745441694,0.117092350662705,0.117695802879189,0.118304304609763,0.118918340056486,0.119540471825428,0.120165098182175,0.120800852164402,0.12143660614663,0.122085400098025,0.122734733721141,0.123394022121565,0.12405685574199,0.124726574209741,0.125402788850232,0.126082859331403,0.126772294496462,0.127462625034333,0.128165076619824,0.128867528205315,0.129580779424044,0.130295997737086,0.131018985260902,0.13174667316572,0.132479212631348,0.133219023836289,0.133960914314241,0.134712451814627,0.135463989315012,0.136226290323268,0.136989105014069,0.13775980233752,0.138533391809136,0.139312179350029,0.14009598687963,0.140882540311863,0.14167595406186,0.142469930757707,0.14327228319198,0.144074635626253,0.144883889649859,0.145694457177335,0.146509614109574,0.147327616963689,0.148148222501738,0.148972824863185,0.149798406192363,0.150628716561365,0.151459026930366,0.152293854205593,0.153128926028721,0.153966727287401,0.154805559842741,0.155645753754904,0.156487293298072,0.157329281356593,0.158172422528854,0.159015589217252,0.159859176715663,0.160702764214075,0.16154572015438,0.162388550662587,0.163230154554257,0.16407097893125,0.1649105215629,0.165748047285728,0.166584805515293,0.167417699370445,0.168250593225596,0.169077827420275,0.169904718437122,0.170726275680986,0.171545758299439,0.17236084403257,0.173171481495849,0.173979291809135,0.174779619771326,0.175579341808428,0.176367872145341,0.177156402482254,0.177933909294271,0.178709134104961,0.179475378094358,0.18023577387958,0.180989906315715,0.181733938318534,0.182475107457424,0.183201234150226,0.183927360843027,0.184635263414538,0.185341941115723,0.186033628660664,0.186719316263486,0.187393938235216,0.188057102030372,0.188713811648257,0.189352930221151,0.189990885004558,0.190604454187489,0.191218023370419,0.191809354346062,0.192395892205016,0.192965343714847,0.193523395550095,0.194070173453631,0.194598316792931,0.195121638394679,0.195618487957572,0.196115337520465,0.196581795160774,0.19704600777227,0.197486184007641,0.197916463439452,0.198329664912506,0.198724766629998,0.199110318330594,0.199469054123714,0.199826299886072,0.200147542362695,0.200468784839319,0.200758532302606,0.201041219223072,0.201300414110932,0.201543552542941,0.201771671698597,0.201974341972168,0.202170887071591,0.202332246514408,0.202493605957225,0.202616030923732,0.202735317357962,0.202824569400668,0.202901104383163,0.202956849052769,0.202990040841541,0.203011973108608,0.203001319339511,0.202989163874628,0.202934253933341,0.202879343992054,0.202788282500366,0.20268879957604,0.202562968821039,0.202418691629296,0.202258004364158,0.202068808528595,0.201873209768324,0.201639068851153,0.201404927933981,0.201129522187349,0.200850508361428,0.200540349631582,0.200216633987728,0.199871863948026,0.199503716433209,0.199124509408815,0.198712298392622,0.19829886130298,0.197843052771502,0.197387244240024,0.196896781493373,0.196397937871538,0.19587441397954,0.195333192584747,0.194777005304039,0.194194156435806,0.193605734027119,0.192982098699334,0.192358463371548,0.191698407035658,0.191034914359853,0.190344584356067,0.189642248585969,0.188922245393687,0.188182162643054,0.187433112988389,0.186656457635913,0.185879014094876,0.185067034891572,0.184255055688269,0.183415891419987,0.182569907316114,0.181705115137039,0.180826510847089,0.179936879862622,0.179027101188375,0.178113440107239,0.177173989040154,0.176234537973069,0.175269555286556,0.174301984912016,0.173316245227264,0.172322154454248,0.171316562665847,0.170297590806562,0.169273063871275,0.168230885096091,0.167188351429425,0.166124669123126,0.165060986816828,0.163981609047582,0.162898150093454,0.161804399026898,0.160702908045537,0.159595754823267,0.158477988393206,0.157358407398144,0.156226128285408,0.155093849172673,0.153950067935642,0.152805039359258,0.151652544307667,0.150496524267832,0.149336284868716,0.148171020563917,0.14700400142748,0.145831223786238,0.144658384073882,0.143479802426044,0.142301220778206,0.141119392148942,0.139936689060543,0.138752590174574,0.137567416469233,0.136381949828957,0.135195919817602,0.134009975283775,0.132824662223168,0.131639349162561,0.130456048295446,0.12927298009456,0.128092419555052,0.126913074746802,0.125736050094983,0.124561854089189,0.123389142494187,0.122221464125919,0.121053823992805,0.119893972378455,0.118734120764106,0.117581364649266,0.116430586360861,0.115285542072199,0.114145018638528,0.113008318454555,0.111879164195776,0.110751417915041,0.109634678115447,0.108517938315853,0.107413122242594,0.106309771664275,0.105215963764934,0.104126905503079,0.103044574095367,0.101970638774032,0.100900228055335,0.0998421733605889,0.0987841186658433,0.0977426139024816,0.0967011244479682,0.0956729678994735,0.0946486554176355,0.0936341460988379,0.0926275499493082,0.091626963160385,0.0906385511453978,0.0896521385921461,0.0886823080672573,0.0877124775423685,0.0867593772160695,0.0858084564830196,0.0848702242540064,0.0839384742212046,0.0830152259554951,0.0821028420503727,0.0811946723779112,0.080301786694283,0.0794089010106549,0.078535452903125,0.077662136565721,0.076803906227583,0.075950171955065,0.0751071359580779,0.074272940805155,0.0734450582161497,0.0726303064748375,0.0718175191847142,0.0710220654243603,0.0702266116640063,0.0694479506891376,0.0686716029145549,0.0679076354444719,0.0671501583513787,0.0664007366474456,0.0656618549544098,0.0649268187422217,0.0642062205784403,0.063485622414659,0.0627827377435614,0.0620800780720707,0.06139084744168,0.0607057514979842,0.0600299529461286,0.0593620196727467,0.0586994236116411,0.0580482290696998,0.0573985986522587,0.0567636993919916,0.0561288001317245,0.0555077272578837,0.0548886636307306,0.0542795898236822,0.0536758892196056,0.0530785483338631,0.0524897283285021,0.0519038515884204,0.05132942298578,0.0507549943831396,0.0501942090754451,0],"text":["density: 0.05019421<br />prova1: 1.000000","density: 0.05075499<br />prova1: 1.014090","density: 0.05132942<br />prova1: 1.028180","density: 0.05190385<br />prova1: 1.042270","density: 0.05248973<br />prova1: 1.056360","density: 0.05307855<br />prova1: 1.070450","density: 0.05367589<br />prova1: 1.084540","density: 0.05427959<br />prova1: 1.098630","density: 0.05488866<br />prova1: 1.112720","density: 0.05550773<br />prova1: 1.126810","density: 0.05612880<br />prova1: 1.140900","density: 0.05676370<br />prova1: 1.154990","density: 0.05739860<br />prova1: 1.169080","density: 0.05804823<br />prova1: 1.183170","density: 0.05869942<br />prova1: 1.197260","density: 0.05936202<br />prova1: 1.211350","density: 0.06002995<br />prova1: 1.225440","density: 0.06070575<br />prova1: 1.239530","density: 0.06139085<br />prova1: 1.253620","density: 0.06208008<br />prova1: 1.267710","density: 0.06278274<br />prova1: 1.281800","density: 0.06348562<br />prova1: 1.295890","density: 0.06420622<br />prova1: 1.309980","density: 0.06492682<br />prova1: 1.324070","density: 0.06566185<br />prova1: 1.338160","density: 0.06640074<br />prova1: 1.352250","density: 0.06715016<br />prova1: 1.366341","density: 0.06790764<br />prova1: 1.380431","density: 0.06867160<br />prova1: 1.394521","density: 0.06944795<br />prova1: 1.408611","density: 0.07022661<br />prova1: 1.422701","density: 0.07102207<br />prova1: 1.436791","density: 0.07181752<br />prova1: 1.450881","density: 0.07263031<br />prova1: 1.464971","density: 0.07344506<br />prova1: 1.479061","density: 0.07427294<br />prova1: 1.493151","density: 0.07510714<br />prova1: 1.507241","density: 0.07595017<br />prova1: 1.521331","density: 0.07680391<br />prova1: 1.535421","density: 0.07766214<br />prova1: 1.549511","density: 0.07853545<br />prova1: 1.563601","density: 0.07940890<br />prova1: 1.577691","density: 0.08030179<br />prova1: 1.591781","density: 0.08119467<br />prova1: 1.605871","density: 0.08210284<br />prova1: 1.619961","density: 0.08301523<br />prova1: 1.634051","density: 0.08393847<br />prova1: 1.648141","density: 0.08487022<br />prova1: 1.662231","density: 0.08580846<br />prova1: 1.676321","density: 0.08675938<br />prova1: 1.690411","density: 0.08771248<br />prova1: 1.704501","density: 0.08868231<br />prova1: 1.718591","density: 0.08965214<br />prova1: 1.732681","density: 0.09063855<br />prova1: 1.746771","density: 0.09162696<br />prova1: 1.760861","density: 0.09262755<br />prova1: 1.774951","density: 0.09363415<br />prova1: 1.789041","density: 0.09464866<br />prova1: 1.803131","density: 0.09567297<br />prova1: 1.817221","density: 0.09670112<br />prova1: 1.831311","density: 0.09774261<br />prova1: 1.845401","density: 0.09878412<br />prova1: 1.859491","density: 0.09984217<br />prova1: 1.873581","density: 0.10090023<br />prova1: 1.887671","density: 0.10197064<br />prova1: 1.901761","density: 0.10304457<br />prova1: 1.915851","density: 0.10412691<br />prova1: 1.929941","density: 0.10521596<br />prova1: 1.944031","density: 0.10630977<br />prova1: 1.958121","density: 0.10741312<br />prova1: 1.972211","density: 0.10851794<br />prova1: 1.986301","density: 0.10963468<br />prova1: 2.000391","density: 0.11075142<br />prova1: 2.014481","density: 0.11187916<br />prova1: 2.028571","density: 0.11300832<br />prova1: 2.042661","density: 0.11414502<br />prova1: 2.056751","density: 0.11528554<br />prova1: 2.070841","density: 0.11643059<br />prova1: 2.084932","density: 0.11758136<br />prova1: 2.099022","density: 0.11873412<br />prova1: 2.113112","density: 0.11989397<br />prova1: 2.127202","density: 0.12105382<br />prova1: 2.141292","density: 0.12222146<br />prova1: 2.155382","density: 0.12338914<br />prova1: 2.169472","density: 0.12456185<br />prova1: 2.183562","density: 0.12573605<br />prova1: 2.197652","density: 0.12691307<br />prova1: 2.211742","density: 0.12809242<br />prova1: 2.225832","density: 0.12927298<br />prova1: 2.239922","density: 0.13045605<br />prova1: 2.254012","density: 0.13163935<br />prova1: 2.268102","density: 0.13282466<br />prova1: 2.282192","density: 0.13400998<br />prova1: 2.296282","density: 0.13519592<br />prova1: 2.310372","density: 0.13638195<br />prova1: 2.324462","density: 0.13756742<br />prova1: 2.338552","density: 0.13875259<br />prova1: 2.352642","density: 0.13993669<br />prova1: 2.366732","density: 0.14111939<br />prova1: 2.380822","density: 0.14230122<br />prova1: 2.394912","density: 0.14347980<br />prova1: 2.409002","density: 0.14465838<br />prova1: 2.423092","density: 0.14583122<br />prova1: 2.437182","density: 0.14700400<br />prova1: 2.451272","density: 0.14817102<br />prova1: 2.465362","density: 0.14933628<br />prova1: 2.479452","density: 0.15049652<br />prova1: 2.493542","density: 0.15165254<br />prova1: 2.507632","density: 0.15280504<br />prova1: 2.521722","density: 0.15395007<br />prova1: 2.535812","density: 0.15509385<br />prova1: 2.549902","density: 0.15622613<br />prova1: 2.563992","density: 0.15735841<br />prova1: 2.578082","density: 0.15847799<br />prova1: 2.592172","density: 0.15959575<br />prova1: 2.606262","density: 0.16070291<br />prova1: 2.620352","density: 0.16180440<br />prova1: 2.634442","density: 0.16289815<br />prova1: 2.648532","density: 0.16398161<br />prova1: 2.662622","density: 0.16506099<br />prova1: 2.676712","density: 0.16612467<br />prova1: 2.690802","density: 0.16718835<br />prova1: 2.704892","density: 0.16823089<br />prova1: 2.718982","density: 0.16927306<br />prova1: 2.733072","density: 0.17029759<br />prova1: 2.747162","density: 0.17131656<br />prova1: 2.761252","density: 0.17232215<br />prova1: 2.775342","density: 0.17331625<br />prova1: 2.789432","density: 0.17430198<br />prova1: 2.803523","density: 0.17526956<br />prova1: 2.817613","density: 0.17623454<br />prova1: 2.831703","density: 0.17717399<br />prova1: 2.845793","density: 0.17811344<br />prova1: 2.859883","density: 0.17902710<br />prova1: 2.873973","density: 0.17993688<br />prova1: 2.888063","density: 0.18082651<br />prova1: 2.902153","density: 0.18170512<br />prova1: 2.916243","density: 0.18256991<br />prova1: 2.930333","density: 0.18341589<br />prova1: 2.944423","density: 0.18425506<br />prova1: 2.958513","density: 0.18506703<br />prova1: 2.972603","density: 0.18587901<br />prova1: 2.986693","density: 0.18665646<br />prova1: 3.000783","density: 0.18743311<br />prova1: 3.014873","density: 0.18818216<br />prova1: 3.028963","density: 0.18892225<br />prova1: 3.043053","density: 0.18964225<br />prova1: 3.057143","density: 0.19034458<br />prova1: 3.071233","density: 0.19103491<br />prova1: 3.085323","density: 0.19169841<br />prova1: 3.099413","density: 0.19235846<br />prova1: 3.113503","density: 0.19298210<br />prova1: 3.127593","density: 0.19360573<br />prova1: 3.141683","density: 0.19419416<br />prova1: 3.155773","density: 0.19477701<br />prova1: 3.169863","density: 0.19533319<br />prova1: 3.183953","density: 0.19587441<br />prova1: 3.198043","density: 0.19639794<br />prova1: 3.212133","density: 0.19689678<br />prova1: 3.226223","density: 0.19738724<br />prova1: 3.240313","density: 0.19784305<br />prova1: 3.254403","density: 0.19829886<br />prova1: 3.268493","density: 0.19871230<br />prova1: 3.282583","density: 0.19912451<br />prova1: 3.296673","density: 0.19950372<br />prova1: 3.310763","density: 0.19987186<br />prova1: 3.324853","density: 0.20021663<br />prova1: 3.338943","density: 0.20054035<br />prova1: 3.353033","density: 0.20085051<br />prova1: 3.367123","density: 0.20112952<br />prova1: 3.381213","density: 0.20140493<br />prova1: 3.395303","density: 0.20163907<br />prova1: 3.409393","density: 0.20187321<br />prova1: 3.423483","density: 0.20206881<br />prova1: 3.437573","density: 0.20225800<br />prova1: 3.451663","density: 0.20241869<br />prova1: 3.465753","density: 0.20256297<br />prova1: 3.479843","density: 0.20268880<br />prova1: 3.493933","density: 0.20278828<br />prova1: 3.508023","density: 0.20287934<br />prova1: 3.522114","density: 0.20293425<br />prova1: 3.536204","density: 0.20298916<br />prova1: 3.550294","density: 0.20300132<br />prova1: 3.564384","density: 0.20301197<br />prova1: 3.578474","density: 0.20299004<br />prova1: 3.592564","density: 0.20295685<br />prova1: 3.606654","density: 0.20290110<br />prova1: 3.620744","density: 0.20282457<br />prova1: 3.634834","density: 0.20273532<br />prova1: 3.648924","density: 0.20261603<br />prova1: 3.663014","density: 0.20249361<br />prova1: 3.677104","density: 0.20233225<br />prova1: 3.691194","density: 0.20217089<br />prova1: 3.705284","density: 0.20197434<br />prova1: 3.719374","density: 0.20177167<br />prova1: 3.733464","density: 0.20154355<br />prova1: 3.747554","density: 0.20130041<br />prova1: 3.761644","density: 0.20104122<br />prova1: 3.775734","density: 0.20075853<br />prova1: 3.789824","density: 0.20046878<br />prova1: 3.803914","density: 0.20014754<br />prova1: 3.818004","density: 0.19982630<br />prova1: 3.832094","density: 0.19946905<br />prova1: 3.846184","density: 0.19911032<br />prova1: 3.860274","density: 0.19872477<br />prova1: 3.874364","density: 0.19832966<br />prova1: 3.888454","density: 0.19791646<br />prova1: 3.902544","density: 0.19748618<br />prova1: 3.916634","density: 0.19704601<br />prova1: 3.930724","density: 0.19658180<br />prova1: 3.944814","density: 0.19611534<br />prova1: 3.958904","density: 0.19561849<br />prova1: 3.972994","density: 0.19512164<br />prova1: 3.987084","density: 0.19459832<br />prova1: 4.001174","density: 0.19407017<br />prova1: 4.015264","density: 0.19352340<br />prova1: 4.029354","density: 0.19296534<br />prova1: 4.043444","density: 0.19239589<br />prova1: 4.057534","density: 0.19180935<br />prova1: 4.071624","density: 0.19121802<br />prova1: 4.085714","density: 0.19060445<br />prova1: 4.099804","density: 0.18999089<br />prova1: 4.113894","density: 0.18935293<br />prova1: 4.127984","density: 0.18871381<br />prova1: 4.142074","density: 0.18805710<br />prova1: 4.156164","density: 0.18739394<br />prova1: 4.170254","density: 0.18671932<br />prova1: 4.184344","density: 0.18603363<br />prova1: 4.198434","density: 0.18534194<br />prova1: 4.212524","density: 0.18463526<br />prova1: 4.226614","density: 0.18392736<br />prova1: 4.240705","density: 0.18320123<br />prova1: 4.254795","density: 0.18247511<br />prova1: 4.268885","density: 0.18173394<br />prova1: 4.282975","density: 0.18098991<br />prova1: 4.297065","density: 0.18023577<br />prova1: 4.311155","density: 0.17947538<br />prova1: 4.325245","density: 0.17870913<br />prova1: 4.339335","density: 0.17793391<br />prova1: 4.353425","density: 0.17715640<br />prova1: 4.367515","density: 0.17636787<br />prova1: 4.381605","density: 0.17557934<br />prova1: 4.395695","density: 0.17477962<br />prova1: 4.409785","density: 0.17397929<br />prova1: 4.423875","density: 0.17317148<br />prova1: 4.437965","density: 0.17236084<br />prova1: 4.452055","density: 0.17154576<br />prova1: 4.466145","density: 0.17072628<br />prova1: 4.480235","density: 0.16990472<br />prova1: 4.494325","density: 0.16907783<br />prova1: 4.508415","density: 0.16825059<br />prova1: 4.522505","density: 0.16741770<br />prova1: 4.536595","density: 0.16658481<br />prova1: 4.550685","density: 0.16574805<br />prova1: 4.564775","density: 0.16491052<br />prova1: 4.578865","density: 0.16407098<br />prova1: 4.592955","density: 0.16323015<br />prova1: 4.607045","density: 0.16238855<br />prova1: 4.621135","density: 0.16154572<br />prova1: 4.635225","density: 0.16070276<br />prova1: 4.649315","density: 0.15985918<br />prova1: 4.663405","density: 0.15901559<br />prova1: 4.677495","density: 0.15817242<br />prova1: 4.691585","density: 0.15732928<br />prova1: 4.705675","density: 0.15648729<br />prova1: 4.719765","density: 0.15564575<br />prova1: 4.733855","density: 0.15480556<br />prova1: 4.747945","density: 0.15396673<br />prova1: 4.762035","density: 0.15312893<br />prova1: 4.776125","density: 0.15229385<br />prova1: 4.790215","density: 0.15145903<br />prova1: 4.804305","density: 0.15062872<br />prova1: 4.818395","density: 0.14979841<br />prova1: 4.832485","density: 0.14897282<br />prova1: 4.846575","density: 0.14814822<br />prova1: 4.860665","density: 0.14732762<br />prova1: 4.874755","density: 0.14650961<br />prova1: 4.888845","density: 0.14569446<br />prova1: 4.902935","density: 0.14488389<br />prova1: 4.917025","density: 0.14407464<br />prova1: 4.931115","density: 0.14327228<br />prova1: 4.945205","density: 0.14246993<br />prova1: 4.959295","density: 0.14167595<br />prova1: 4.973386","density: 0.14088254<br />prova1: 4.987476","density: 0.14009599<br />prova1: 5.001566","density: 0.13931218<br />prova1: 5.015656","density: 0.13853339<br />prova1: 5.029746","density: 0.13775980<br />prova1: 5.043836","density: 0.13698911<br />prova1: 5.057926","density: 0.13622629<br />prova1: 5.072016","density: 0.13546399<br />prova1: 5.086106","density: 0.13471245<br />prova1: 5.100196","density: 0.13396091<br />prova1: 5.114286","density: 0.13321902<br />prova1: 5.128376","density: 0.13247921<br />prova1: 5.142466","density: 0.13174667<br />prova1: 5.156556","density: 0.13101899<br />prova1: 5.170646","density: 0.13029600<br />prova1: 5.184736","density: 0.12958078<br />prova1: 5.198826","density: 0.12886753<br />prova1: 5.212916","density: 0.12816508<br />prova1: 5.227006","density: 0.12746263<br />prova1: 5.241096","density: 0.12677229<br />prova1: 5.255186","density: 0.12608286<br />prova1: 5.269276","density: 0.12540279<br />prova1: 5.283366","density: 0.12472657<br />prova1: 5.297456","density: 0.12405686<br />prova1: 5.311546","density: 0.12339402<br />prova1: 5.325636","density: 0.12273473<br />prova1: 5.339726","density: 0.12208540<br />prova1: 5.353816","density: 0.12143661<br />prova1: 5.367906","density: 0.12080085<br />prova1: 5.381996","density: 0.12016510<br />prova1: 5.396086","density: 0.11954047<br />prova1: 5.410176","density: 0.11891834<br />prova1: 5.424266","density: 0.11830430<br />prova1: 5.438356","density: 0.11769580<br />prova1: 5.452446","density: 0.11709235<br />prova1: 5.466536","density: 0.11649745<br />prova1: 5.480626","density: 0.11590457<br />prova1: 5.494716","density: 0.11532322<br />prova1: 5.508806","density: 0.11474188<br />prova1: 5.522896","density: 0.11417300<br />prova1: 5.536986","density: 0.11360512<br />prova1: 5.551076","density: 0.11304663<br />prova1: 5.565166","density: 0.11249211<br />prova1: 5.579256","density: 0.11194395<br />prova1: 5.593346","density: 0.11140266<br />prova1: 5.607436","density: 0.11086474<br />prova1: 5.621526","density: 0.11033654<br />prova1: 5.635616","density: 0.10980877<br />prova1: 5.649706","density: 0.10929348<br />prova1: 5.663796","density: 0.10877819<br />prova1: 5.677886","density: 0.10827323<br />prova1: 5.691977","density: 0.10777066<br />prova1: 5.706067","density: 0.10727547<br />prova1: 5.720157","density: 0.10678544<br />prova1: 5.734247","density: 0.10629991<br />prova1: 5.748337","density: 0.10582219<br />prova1: 5.762427","density: 0.10534620<br />prova1: 5.776517","density: 0.10488059<br />prova1: 5.790607","density: 0.10441498<br />prova1: 5.804697","density: 0.10396028<br />prova1: 5.818787","density: 0.10350654<br />prova1: 5.832877","density: 0.10306091<br />prova1: 5.846967","density: 0.10261881<br />prova1: 5.861057","density: 0.10218211<br />prova1: 5.875147","density: 0.10175141<br />prova1: 5.889237","density: 0.10132351<br />prova1: 5.903327","density: 0.10090397<br />prova1: 5.917417","density: 0.10048473<br />prova1: 5.931507","density: 0.10007611<br />prova1: 5.945597","density: 0.09966748<br />prova1: 5.959687","density: 0.09926745<br />prova1: 5.973777","density: 0.09886950<br />prova1: 5.987867","density: 0.09847762<br />prova1: 6.001957","density: 0.09809010<br />prova1: 6.016047","density: 0.09770624<br />prova1: 6.030137","density: 0.09732891<br />prova1: 6.044227","density: 0.09695293<br />prova1: 6.058317","density: 0.09658554<br />prova1: 6.072407","density: 0.09621816<br />prova1: 6.086497","density: 0.09585965<br />prova1: 6.100587","density: 0.09550197<br />prova1: 6.114677","density: 0.09515084<br />prova1: 6.128767","density: 0.09480265<br />prova1: 6.142857","density: 0.09445878<br />prova1: 6.156947","density: 0.09411983<br />prova1: 6.171037","density: 0.09378309<br />prova1: 6.185127","density: 0.09345315<br />prova1: 6.199217","density: 0.09312342<br />prova1: 6.213307","density: 0.09280228<br />prova1: 6.227397","density: 0.09248114<br />prova1: 6.241487","density: 0.09216686<br />prova1: 6.255577","density: 0.09185429<br />prova1: 6.269667","density: 0.09154655<br />prova1: 6.283757","density: 0.09124234<br />prova1: 6.297847","density: 0.09094101<br />prova1: 6.311937","density: 0.09064494<br />prova1: 6.326027","density: 0.09034991<br />prova1: 6.340117","density: 0.09006176<br />prova1: 6.354207","density: 0.08977362<br />prova1: 6.368297","density: 0.08949249<br />prova1: 6.382387","density: 0.08921206<br />prova1: 6.396477","density: 0.08893677<br />prova1: 6.410568","density: 0.08866385<br />prova1: 6.424658","density: 0.08839429<br />prova1: 6.438748","density: 0.08812866<br />prova1: 6.452838","density: 0.08786472<br />prova1: 6.466928","density: 0.08760617<br />prova1: 6.481018","density: 0.08734773<br />prova1: 6.495108","density: 0.08709605<br />prova1: 6.509198","density: 0.08684436<br />prova1: 6.523288","density: 0.08659795<br />prova1: 6.537378","density: 0.08635292<br />prova1: 6.551468","density: 0.08611155<br />prova1: 6.565558","density: 0.08587295<br />prova1: 6.579648","density: 0.08563650<br />prova1: 6.593738","density: 0.08540410<br />prova1: 6.607828","density: 0.08517245<br />prova1: 6.621918","density: 0.08494602<br />prova1: 6.636008","density: 0.08471960<br />prova1: 6.650098","density: 0.08449836<br />prova1: 6.664188","density: 0.08427767<br />prova1: 6.678278","density: 0.08406073<br />prova1: 6.692368","density: 0.08384554<br />prova1: 6.706458","density: 0.08363275<br />prova1: 6.720548","density: 0.08342282<br />prova1: 6.734638","density: 0.08321404<br />prova1: 6.748728","density: 0.08300910<br />prova1: 6.762818","density: 0.08280420<br />prova1: 6.776908","density: 0.08260397<br />prova1: 6.790998","density: 0.08240374<br />prova1: 6.805088","density: 0.08220702<br />prova1: 6.819178","density: 0.08201123<br />prova1: 6.833268","density: 0.08181779<br />prova1: 6.847358","density: 0.08162616<br />prova1: 6.861448","density: 0.08143585<br />prova1: 6.875538","density: 0.08124807<br />prova1: 6.889628","density: 0.08106072<br />prova1: 6.903718","density: 0.08087649<br />prova1: 6.917808","density: 0.08069225<br />prova1: 6.931898","density: 0.08051091<br />prova1: 6.945988","density: 0.08032990<br />prova1: 6.960078","density: 0.08015084<br />prova1: 6.974168","density: 0.07997271<br />prova1: 6.988258","density: 0.07979574<br />prova1: 7.002348","density: 0.07962017<br />prova1: 7.016438","density: 0.07944509<br />prova1: 7.030528","density: 0.07927170<br />prova1: 7.044618","density: 0.07909833<br />prova1: 7.058708","density: 0.07892677<br />prova1: 7.072798","density: 0.07875520<br />prova1: 7.086888","density: 0.07858477<br />prova1: 7.100978","density: 0.07841466<br />prova1: 7.115068","density: 0.07824514<br />prova1: 7.129159","density: 0.07807608<br />prova1: 7.143249","density: 0.07790725<br />prova1: 7.157339","density: 0.07773886<br />prova1: 7.171429","density: 0.07757050<br />prova1: 7.185519","density: 0.07740238<br />prova1: 7.199609","density: 0.07723425<br />prova1: 7.213699","density: 0.07706599<br />prova1: 7.227789","density: 0.07689771<br />prova1: 7.241879","density: 0.07672906<br />prova1: 7.255969","density: 0.07656022<br />prova1: 7.270059","density: 0.07639093<br />prova1: 7.284149","density: 0.07622110<br />prova1: 7.298239","density: 0.07605096<br />prova1: 7.312329","density: 0.07587971<br />prova1: 7.326419","density: 0.07570846<br />prova1: 7.340509","density: 0.07553537<br />prova1: 7.354599","density: 0.07536228<br />prova1: 7.368689","density: 0.07518743<br />prova1: 7.382779","density: 0.07501207<br />prova1: 7.396869","density: 0.07483521<br />prova1: 7.410959","density: 0.07465715<br />prova1: 7.425049","density: 0.07447805<br />prova1: 7.439139","density: 0.07429686<br />prova1: 7.453229","density: 0.07411529<br />prova1: 7.467319","density: 0.07393055<br />prova1: 7.481409","density: 0.07374581<br />prova1: 7.495499","density: 0.07355756<br />prova1: 7.509589","density: 0.07336885<br />prova1: 7.523679","density: 0.07317725<br />prova1: 7.537769","density: 0.07298416<br />prova1: 7.551859","density: 0.07278898<br />prova1: 7.565949","density: 0.07259112<br />prova1: 7.580039","density: 0.07239215<br />prova1: 7.594129","density: 0.07218913<br />prova1: 7.608219","density: 0.07198610<br />prova1: 7.622309","density: 0.07177758<br />prova1: 7.636399","density: 0.07156901<br />prova1: 7.650489","density: 0.07135590<br />prova1: 7.664579","density: 0.07114143<br />prova1: 7.678669","density: 0.07092354<br />prova1: 7.692759","density: 0.07070283<br />prova1: 7.706849","density: 0.07047998<br />prova1: 7.720939","density: 0.07025269<br />prova1: 7.735029","density: 0.07002470<br />prova1: 7.749119","density: 0.06979052<br />prova1: 7.763209","density: 0.06955635<br />prova1: 7.777299","density: 0.06931587<br />prova1: 7.791389","density: 0.06907453<br />prova1: 7.805479","density: 0.06882830<br />prova1: 7.819569","density: 0.06857953<br />prova1: 7.833659","density: 0.06832742<br />prova1: 7.847750","density: 0.06807097<br />prova1: 7.861840","density: 0.06781286<br />prova1: 7.875930","density: 0.06754852<br />prova1: 7.890020","density: 0.06728418<br />prova1: 7.904110","density: 0.06701186<br />prova1: 7.918200","density: 0.06673944<br />prova1: 7.932290","density: 0.06646073<br />prova1: 7.946380","density: 0.06618008<br />prova1: 7.960470","density: 0.06589489<br />prova1: 7.974560","density: 0.06560587<br />prova1: 7.988650","density: 0.06531415<br />prova1: 8.002740","density: 0.06501665<br />prova1: 8.016830","density: 0.06471834<br />prova1: 8.030920","density: 0.06441231<br />prova1: 8.045010","density: 0.06410627<br />prova1: 8.059100","density: 0.06379274<br />prova1: 8.073190","density: 0.06347813<br />prova1: 8.087280","density: 0.06315792<br />prova1: 8.101370","density: 0.06283471<br />prova1: 8.115460","density: 0.06250783<br />prova1: 8.129550","density: 0.06217605<br />prova1: 8.143640","density: 0.06184252<br />prova1: 8.157730","density: 0.06150221<br />prova1: 8.171820","density: 0.06116191<br />prova1: 8.185910","density: 0.06081332<br />prova1: 8.200000","density: 0.06081332<br />prova1: 8.200000","density: 0.06081332<br />prova1: 8.200000","density: 0.06116191<br />prova1: 8.185910","density: 0.06150221<br />prova1: 8.171820","density: 0.06184252<br />prova1: 8.157730","density: 0.06217605<br />prova1: 8.143640","density: 0.06250783<br />prova1: 8.129550","density: 0.06283471<br />prova1: 8.115460","density: 0.06315792<br />prova1: 8.101370","density: 0.06347813<br />prova1: 8.087280","density: 0.06379274<br />prova1: 8.073190","density: 0.06410627<br />prova1: 8.059100","density: 0.06441231<br />prova1: 8.045010","density: 0.06471834<br />prova1: 8.030920","density: 0.06501665<br />prova1: 8.016830","density: 0.06531415<br />prova1: 8.002740","density: 0.06560587<br />prova1: 7.988650","density: 0.06589489<br />prova1: 7.974560","density: 0.06618008<br />prova1: 7.960470","density: 0.06646073<br />prova1: 7.946380","density: 0.06673944<br />prova1: 7.932290","density: 0.06701186<br />prova1: 7.918200","density: 0.06728418<br />prova1: 7.904110","density: 0.06754852<br />prova1: 7.890020","density: 0.06781286<br />prova1: 7.875930","density: 0.06807097<br />prova1: 7.861840","density: 0.06832742<br />prova1: 7.847750","density: 0.06857953<br />prova1: 7.833659","density: 0.06882830<br />prova1: 7.819569","density: 0.06907453<br />prova1: 7.805479","density: 0.06931587<br />prova1: 7.791389","density: 0.06955635<br />prova1: 7.777299","density: 0.06979052<br />prova1: 7.763209","density: 0.07002470<br />prova1: 7.749119","density: 0.07025269<br />prova1: 7.735029","density: 0.07047998<br />prova1: 7.720939","density: 0.07070283<br />prova1: 7.706849","density: 0.07092354<br />prova1: 7.692759","density: 0.07114143<br />prova1: 7.678669","density: 0.07135590<br />prova1: 7.664579","density: 0.07156901<br />prova1: 7.650489","density: 0.07177758<br />prova1: 7.636399","density: 0.07198610<br />prova1: 7.622309","density: 0.07218913<br />prova1: 7.608219","density: 0.07239215<br />prova1: 7.594129","density: 0.07259112<br />prova1: 7.580039","density: 0.07278898<br />prova1: 7.565949","density: 0.07298416<br />prova1: 7.551859","density: 0.07317725<br />prova1: 7.537769","density: 0.07336885<br />prova1: 7.523679","density: 0.07355756<br />prova1: 7.509589","density: 0.07374581<br />prova1: 7.495499","density: 0.07393055<br />prova1: 7.481409","density: 0.07411529<br />prova1: 7.467319","density: 0.07429686<br />prova1: 7.453229","density: 0.07447805<br />prova1: 7.439139","density: 0.07465715<br />prova1: 7.425049","density: 0.07483521<br />prova1: 7.410959","density: 0.07501207<br />prova1: 7.396869","density: 0.07518743<br />prova1: 7.382779","density: 0.07536228<br />prova1: 7.368689","density: 0.07553537<br />prova1: 7.354599","density: 0.07570846<br />prova1: 7.340509","density: 0.07587971<br />prova1: 7.326419","density: 0.07605096<br />prova1: 7.312329","density: 0.07622110<br />prova1: 7.298239","density: 0.07639093<br />prova1: 7.284149","density: 0.07656022<br />prova1: 7.270059","density: 0.07672906<br />prova1: 7.255969","density: 0.07689771<br />prova1: 7.241879","density: 0.07706599<br />prova1: 7.227789","density: 0.07723425<br />prova1: 7.213699","density: 0.07740238<br />prova1: 7.199609","density: 0.07757050<br />prova1: 7.185519","density: 0.07773886<br />prova1: 7.171429","density: 0.07790725<br />prova1: 7.157339","density: 0.07807608<br />prova1: 7.143249","density: 0.07824514<br />prova1: 7.129159","density: 0.07841466<br />prova1: 7.115068","density: 0.07858477<br />prova1: 7.100978","density: 0.07875520<br />prova1: 7.086888","density: 0.07892677<br />prova1: 7.072798","density: 0.07909833<br />prova1: 7.058708","density: 0.07927170<br />prova1: 7.044618","density: 0.07944509<br />prova1: 7.030528","density: 0.07962017<br />prova1: 7.016438","density: 0.07979574<br />prova1: 7.002348","density: 0.07997271<br />prova1: 6.988258","density: 0.08015084<br />prova1: 6.974168","density: 0.08032990<br />prova1: 6.960078","density: 0.08051091<br />prova1: 6.945988","density: 0.08069225<br />prova1: 6.931898","density: 0.08087649<br />prova1: 6.917808","density: 0.08106072<br />prova1: 6.903718","density: 0.08124807<br />prova1: 6.889628","density: 0.08143585<br />prova1: 6.875538","density: 0.08162616<br />prova1: 6.861448","density: 0.08181779<br />prova1: 6.847358","density: 0.08201123<br />prova1: 6.833268","density: 0.08220702<br />prova1: 6.819178","density: 0.08240374<br />prova1: 6.805088","density: 0.08260397<br />prova1: 6.790998","density: 0.08280420<br />prova1: 6.776908","density: 0.08300910<br />prova1: 6.762818","density: 0.08321404<br />prova1: 6.748728","density: 0.08342282<br />prova1: 6.734638","density: 0.08363275<br />prova1: 6.720548","density: 0.08384554<br />prova1: 6.706458","density: 0.08406073<br />prova1: 6.692368","density: 0.08427767<br />prova1: 6.678278","density: 0.08449836<br />prova1: 6.664188","density: 0.08471960<br />prova1: 6.650098","density: 0.08494602<br />prova1: 6.636008","density: 0.08517245<br />prova1: 6.621918","density: 0.08540410<br />prova1: 6.607828","density: 0.08563650<br />prova1: 6.593738","density: 0.08587295<br />prova1: 6.579648","density: 0.08611155<br />prova1: 6.565558","density: 0.08635292<br />prova1: 6.551468","density: 0.08659795<br />prova1: 6.537378","density: 0.08684436<br />prova1: 6.523288","density: 0.08709605<br />prova1: 6.509198","density: 0.08734773<br />prova1: 6.495108","density: 0.08760617<br />prova1: 6.481018","density: 0.08786472<br />prova1: 6.466928","density: 0.08812866<br />prova1: 6.452838","density: 0.08839429<br />prova1: 6.438748","density: 0.08866385<br />prova1: 6.424658","density: 0.08893677<br />prova1: 6.410568","density: 0.08921206<br />prova1: 6.396477","density: 0.08949249<br />prova1: 6.382387","density: 0.08977362<br />prova1: 6.368297","density: 0.09006176<br />prova1: 6.354207","density: 0.09034991<br />prova1: 6.340117","density: 0.09064494<br />prova1: 6.326027","density: 0.09094101<br />prova1: 6.311937","density: 0.09124234<br />prova1: 6.297847","density: 0.09154655<br />prova1: 6.283757","density: 0.09185429<br />prova1: 6.269667","density: 0.09216686<br />prova1: 6.255577","density: 0.09248114<br />prova1: 6.241487","density: 0.09280228<br />prova1: 6.227397","density: 0.09312342<br />prova1: 6.213307","density: 0.09345315<br />prova1: 6.199217","density: 0.09378309<br />prova1: 6.185127","density: 0.09411983<br />prova1: 6.171037","density: 0.09445878<br />prova1: 6.156947","density: 0.09480265<br />prova1: 6.142857","density: 0.09515084<br />prova1: 6.128767","density: 0.09550197<br />prova1: 6.114677","density: 0.09585965<br />prova1: 6.100587","density: 0.09621816<br />prova1: 6.086497","density: 0.09658554<br />prova1: 6.072407","density: 0.09695293<br />prova1: 6.058317","density: 0.09732891<br />prova1: 6.044227","density: 0.09770624<br />prova1: 6.030137","density: 0.09809010<br />prova1: 6.016047","density: 0.09847762<br />prova1: 6.001957","density: 0.09886950<br />prova1: 5.987867","density: 0.09926745<br />prova1: 5.973777","density: 0.09966748<br />prova1: 5.959687","density: 0.10007611<br />prova1: 5.945597","density: 0.10048473<br />prova1: 5.931507","density: 0.10090397<br />prova1: 5.917417","density: 0.10132351<br />prova1: 5.903327","density: 0.10175141<br />prova1: 5.889237","density: 0.10218211<br />prova1: 5.875147","density: 0.10261881<br />prova1: 5.861057","density: 0.10306091<br />prova1: 5.846967","density: 0.10350654<br />prova1: 5.832877","density: 0.10396028<br />prova1: 5.818787","density: 0.10441498<br />prova1: 5.804697","density: 0.10488059<br />prova1: 5.790607","density: 0.10534620<br />prova1: 5.776517","density: 0.10582219<br />prova1: 5.762427","density: 0.10629991<br />prova1: 5.748337","density: 0.10678544<br />prova1: 5.734247","density: 0.10727547<br />prova1: 5.720157","density: 0.10777066<br />prova1: 5.706067","density: 0.10827323<br />prova1: 5.691977","density: 0.10877819<br />prova1: 5.677886","density: 0.10929348<br />prova1: 5.663796","density: 0.10980877<br />prova1: 5.649706","density: 0.11033654<br />prova1: 5.635616","density: 0.11086474<br />prova1: 5.621526","density: 0.11140266<br />prova1: 5.607436","density: 0.11194395<br />prova1: 5.593346","density: 0.11249211<br />prova1: 5.579256","density: 0.11304663<br />prova1: 5.565166","density: 0.11360512<br />prova1: 5.551076","density: 0.11417300<br />prova1: 5.536986","density: 0.11474188<br />prova1: 5.522896","density: 0.11532322<br />prova1: 5.508806","density: 0.11590457<br />prova1: 5.494716","density: 0.11649745<br />prova1: 5.480626","density: 0.11709235<br />prova1: 5.466536","density: 0.11769580<br />prova1: 5.452446","density: 0.11830430<br />prova1: 5.438356","density: 0.11891834<br />prova1: 5.424266","density: 0.11954047<br />prova1: 5.410176","density: 0.12016510<br />prova1: 5.396086","density: 0.12080085<br />prova1: 5.381996","density: 0.12143661<br />prova1: 5.367906","density: 0.12208540<br />prova1: 5.353816","density: 0.12273473<br />prova1: 5.339726","density: 0.12339402<br />prova1: 5.325636","density: 0.12405686<br />prova1: 5.311546","density: 0.12472657<br />prova1: 5.297456","density: 0.12540279<br />prova1: 5.283366","density: 0.12608286<br />prova1: 5.269276","density: 0.12677229<br />prova1: 5.255186","density: 0.12746263<br />prova1: 5.241096","density: 0.12816508<br />prova1: 5.227006","density: 0.12886753<br />prova1: 5.212916","density: 0.12958078<br />prova1: 5.198826","density: 0.13029600<br />prova1: 5.184736","density: 0.13101899<br />prova1: 5.170646","density: 0.13174667<br />prova1: 5.156556","density: 0.13247921<br />prova1: 5.142466","density: 0.13321902<br />prova1: 5.128376","density: 0.13396091<br />prova1: 5.114286","density: 0.13471245<br />prova1: 5.100196","density: 0.13546399<br />prova1: 5.086106","density: 0.13622629<br />prova1: 5.072016","density: 0.13698911<br />prova1: 5.057926","density: 0.13775980<br />prova1: 5.043836","density: 0.13853339<br />prova1: 5.029746","density: 0.13931218<br />prova1: 5.015656","density: 0.14009599<br />prova1: 5.001566","density: 0.14088254<br />prova1: 4.987476","density: 0.14167595<br />prova1: 4.973386","density: 0.14246993<br />prova1: 4.959295","density: 0.14327228<br />prova1: 4.945205","density: 0.14407464<br />prova1: 4.931115","density: 0.14488389<br />prova1: 4.917025","density: 0.14569446<br />prova1: 4.902935","density: 0.14650961<br />prova1: 4.888845","density: 0.14732762<br />prova1: 4.874755","density: 0.14814822<br />prova1: 4.860665","density: 0.14897282<br />prova1: 4.846575","density: 0.14979841<br />prova1: 4.832485","density: 0.15062872<br />prova1: 4.818395","density: 0.15145903<br />prova1: 4.804305","density: 0.15229385<br />prova1: 4.790215","density: 0.15312893<br />prova1: 4.776125","density: 0.15396673<br />prova1: 4.762035","density: 0.15480556<br />prova1: 4.747945","density: 0.15564575<br />prova1: 4.733855","density: 0.15648729<br />prova1: 4.719765","density: 0.15732928<br />prova1: 4.705675","density: 0.15817242<br />prova1: 4.691585","density: 0.15901559<br />prova1: 4.677495","density: 0.15985918<br />prova1: 4.663405","density: 0.16070276<br />prova1: 4.649315","density: 0.16154572<br />prova1: 4.635225","density: 0.16238855<br />prova1: 4.621135","density: 0.16323015<br />prova1: 4.607045","density: 0.16407098<br />prova1: 4.592955","density: 0.16491052<br />prova1: 4.578865","density: 0.16574805<br />prova1: 4.564775","density: 0.16658481<br />prova1: 4.550685","density: 0.16741770<br />prova1: 4.536595","density: 0.16825059<br />prova1: 4.522505","density: 0.16907783<br />prova1: 4.508415","density: 0.16990472<br />prova1: 4.494325","density: 0.17072628<br />prova1: 4.480235","density: 0.17154576<br />prova1: 4.466145","density: 0.17236084<br />prova1: 4.452055","density: 0.17317148<br />prova1: 4.437965","density: 0.17397929<br />prova1: 4.423875","density: 0.17477962<br />prova1: 4.409785","density: 0.17557934<br />prova1: 4.395695","density: 0.17636787<br />prova1: 4.381605","density: 0.17715640<br />prova1: 4.367515","density: 0.17793391<br />prova1: 4.353425","density: 0.17870913<br />prova1: 4.339335","density: 0.17947538<br />prova1: 4.325245","density: 0.18023577<br />prova1: 4.311155","density: 0.18098991<br />prova1: 4.297065","density: 0.18173394<br />prova1: 4.282975","density: 0.18247511<br />prova1: 4.268885","density: 0.18320123<br />prova1: 4.254795","density: 0.18392736<br />prova1: 4.240705","density: 0.18463526<br />prova1: 4.226614","density: 0.18534194<br />prova1: 4.212524","density: 0.18603363<br />prova1: 4.198434","density: 0.18671932<br />prova1: 4.184344","density: 0.18739394<br />prova1: 4.170254","density: 0.18805710<br />prova1: 4.156164","density: 0.18871381<br />prova1: 4.142074","density: 0.18935293<br />prova1: 4.127984","density: 0.18999089<br />prova1: 4.113894","density: 0.19060445<br />prova1: 4.099804","density: 0.19121802<br />prova1: 4.085714","density: 0.19180935<br />prova1: 4.071624","density: 0.19239589<br />prova1: 4.057534","density: 0.19296534<br />prova1: 4.043444","density: 0.19352340<br />prova1: 4.029354","density: 0.19407017<br />prova1: 4.015264","density: 0.19459832<br />prova1: 4.001174","density: 0.19512164<br />prova1: 3.987084","density: 0.19561849<br />prova1: 3.972994","density: 0.19611534<br />prova1: 3.958904","density: 0.19658180<br />prova1: 3.944814","density: 0.19704601<br />prova1: 3.930724","density: 0.19748618<br />prova1: 3.916634","density: 0.19791646<br />prova1: 3.902544","density: 0.19832966<br />prova1: 3.888454","density: 0.19872477<br />prova1: 3.874364","density: 0.19911032<br />prova1: 3.860274","density: 0.19946905<br />prova1: 3.846184","density: 0.19982630<br />prova1: 3.832094","density: 0.20014754<br />prova1: 3.818004","density: 0.20046878<br />prova1: 3.803914","density: 0.20075853<br />prova1: 3.789824","density: 0.20104122<br />prova1: 3.775734","density: 0.20130041<br />prova1: 3.761644","density: 0.20154355<br />prova1: 3.747554","density: 0.20177167<br />prova1: 3.733464","density: 0.20197434<br />prova1: 3.719374","density: 0.20217089<br />prova1: 3.705284","density: 0.20233225<br />prova1: 3.691194","density: 0.20249361<br />prova1: 3.677104","density: 0.20261603<br />prova1: 3.663014","density: 0.20273532<br />prova1: 3.648924","density: 0.20282457<br />prova1: 3.634834","density: 0.20290110<br />prova1: 3.620744","density: 0.20295685<br />prova1: 3.606654","density: 0.20299004<br />prova1: 3.592564","density: 0.20301197<br />prova1: 3.578474","density: 0.20300132<br />prova1: 3.564384","density: 0.20298916<br />prova1: 3.550294","density: 0.20293425<br />prova1: 3.536204","density: 0.20287934<br />prova1: 3.522114","density: 0.20278828<br />prova1: 3.508023","density: 0.20268880<br />prova1: 3.493933","density: 0.20256297<br />prova1: 3.479843","density: 0.20241869<br />prova1: 3.465753","density: 0.20225800<br />prova1: 3.451663","density: 0.20206881<br />prova1: 3.437573","density: 0.20187321<br />prova1: 3.423483","density: 0.20163907<br />prova1: 3.409393","density: 0.20140493<br />prova1: 3.395303","density: 0.20112952<br />prova1: 3.381213","density: 0.20085051<br />prova1: 3.367123","density: 0.20054035<br />prova1: 3.353033","density: 0.20021663<br />prova1: 3.338943","density: 0.19987186<br />prova1: 3.324853","density: 0.19950372<br />prova1: 3.310763","density: 0.19912451<br />prova1: 3.296673","density: 0.19871230<br />prova1: 3.282583","density: 0.19829886<br />prova1: 3.268493","density: 0.19784305<br />prova1: 3.254403","density: 0.19738724<br />prova1: 3.240313","density: 0.19689678<br />prova1: 3.226223","density: 0.19639794<br />prova1: 3.212133","density: 0.19587441<br />prova1: 3.198043","density: 0.19533319<br />prova1: 3.183953","density: 0.19477701<br />prova1: 3.169863","density: 0.19419416<br />prova1: 3.155773","density: 0.19360573<br />prova1: 3.141683","density: 0.19298210<br />prova1: 3.127593","density: 0.19235846<br />prova1: 3.113503","density: 0.19169841<br />prova1: 3.099413","density: 0.19103491<br />prova1: 3.085323","density: 0.19034458<br />prova1: 3.071233","density: 0.18964225<br />prova1: 3.057143","density: 0.18892225<br />prova1: 3.043053","density: 0.18818216<br />prova1: 3.028963","density: 0.18743311<br />prova1: 3.014873","density: 0.18665646<br />prova1: 3.000783","density: 0.18587901<br />prova1: 2.986693","density: 0.18506703<br />prova1: 2.972603","density: 0.18425506<br />prova1: 2.958513","density: 0.18341589<br />prova1: 2.944423","density: 0.18256991<br />prova1: 2.930333","density: 0.18170512<br />prova1: 2.916243","density: 0.18082651<br />prova1: 2.902153","density: 0.17993688<br />prova1: 2.888063","density: 0.17902710<br />prova1: 2.873973","density: 0.17811344<br />prova1: 2.859883","density: 0.17717399<br />prova1: 2.845793","density: 0.17623454<br />prova1: 2.831703","density: 0.17526956<br />prova1: 2.817613","density: 0.17430198<br />prova1: 2.803523","density: 0.17331625<br />prova1: 2.789432","density: 0.17232215<br />prova1: 2.775342","density: 0.17131656<br />prova1: 2.761252","density: 0.17029759<br />prova1: 2.747162","density: 0.16927306<br />prova1: 2.733072","density: 0.16823089<br />prova1: 2.718982","density: 0.16718835<br />prova1: 2.704892","density: 0.16612467<br />prova1: 2.690802","density: 0.16506099<br />prova1: 2.676712","density: 0.16398161<br />prova1: 2.662622","density: 0.16289815<br />prova1: 2.648532","density: 0.16180440<br />prova1: 2.634442","density: 0.16070291<br />prova1: 2.620352","density: 0.15959575<br />prova1: 2.606262","density: 0.15847799<br />prova1: 2.592172","density: 0.15735841<br />prova1: 2.578082","density: 0.15622613<br />prova1: 2.563992","density: 0.15509385<br />prova1: 2.549902","density: 0.15395007<br />prova1: 2.535812","density: 0.15280504<br />prova1: 2.521722","density: 0.15165254<br />prova1: 2.507632","density: 0.15049652<br />prova1: 2.493542","density: 0.14933628<br />prova1: 2.479452","density: 0.14817102<br />prova1: 2.465362","density: 0.14700400<br />prova1: 2.451272","density: 0.14583122<br />prova1: 2.437182","density: 0.14465838<br />prova1: 2.423092","density: 0.14347980<br />prova1: 2.409002","density: 0.14230122<br />prova1: 2.394912","density: 0.14111939<br />prova1: 2.380822","density: 0.13993669<br />prova1: 2.366732","density: 0.13875259<br />prova1: 2.352642","density: 0.13756742<br />prova1: 2.338552","density: 0.13638195<br />prova1: 2.324462","density: 0.13519592<br />prova1: 2.310372","density: 0.13400998<br />prova1: 2.296282","density: 0.13282466<br />prova1: 2.282192","density: 0.13163935<br />prova1: 2.268102","density: 0.13045605<br />prova1: 2.254012","density: 0.12927298<br />prova1: 2.239922","density: 0.12809242<br />prova1: 2.225832","density: 0.12691307<br />prova1: 2.211742","density: 0.12573605<br />prova1: 2.197652","density: 0.12456185<br />prova1: 2.183562","density: 0.12338914<br />prova1: 2.169472","density: 0.12222146<br />prova1: 2.155382","density: 0.12105382<br />prova1: 2.141292","density: 0.11989397<br />prova1: 2.127202","density: 0.11873412<br />prova1: 2.113112","density: 0.11758136<br />prova1: 2.099022","density: 0.11643059<br />prova1: 2.084932","density: 0.11528554<br />prova1: 2.070841","density: 0.11414502<br />prova1: 2.056751","density: 0.11300832<br />prova1: 2.042661","density: 0.11187916<br />prova1: 2.028571","density: 0.11075142<br />prova1: 2.014481","density: 0.10963468<br />prova1: 2.000391","density: 0.10851794<br />prova1: 1.986301","density: 0.10741312<br />prova1: 1.972211","density: 0.10630977<br />prova1: 1.958121","density: 0.10521596<br />prova1: 1.944031","density: 0.10412691<br />prova1: 1.929941","density: 0.10304457<br />prova1: 1.915851","density: 0.10197064<br />prova1: 1.901761","density: 0.10090023<br />prova1: 1.887671","density: 0.09984217<br />prova1: 1.873581","density: 0.09878412<br />prova1: 1.859491","density: 0.09774261<br />prova1: 1.845401","density: 0.09670112<br />prova1: 1.831311","density: 0.09567297<br />prova1: 1.817221","density: 0.09464866<br />prova1: 1.803131","density: 0.09363415<br />prova1: 1.789041","density: 0.09262755<br />prova1: 1.774951","density: 0.09162696<br />prova1: 1.760861","density: 0.09063855<br />prova1: 1.746771","density: 0.08965214<br />prova1: 1.732681","density: 0.08868231<br />prova1: 1.718591","density: 0.08771248<br />prova1: 1.704501","density: 0.08675938<br />prova1: 1.690411","density: 0.08580846<br />prova1: 1.676321","density: 0.08487022<br />prova1: 1.662231","density: 0.08393847<br />prova1: 1.648141","density: 0.08301523<br />prova1: 1.634051","density: 0.08210284<br />prova1: 1.619961","density: 0.08119467<br />prova1: 1.605871","density: 0.08030179<br />prova1: 1.591781","density: 0.07940890<br />prova1: 1.577691","density: 0.07853545<br />prova1: 1.563601","density: 0.07766214<br />prova1: 1.549511","density: 0.07680391<br />prova1: 1.535421","density: 0.07595017<br />prova1: 1.521331","density: 0.07510714<br />prova1: 1.507241","density: 0.07427294<br />prova1: 1.493151","density: 0.07344506<br />prova1: 1.479061","density: 0.07263031<br />prova1: 1.464971","density: 0.07181752<br />prova1: 1.450881","density: 0.07102207<br />prova1: 1.436791","density: 0.07022661<br />prova1: 1.422701","density: 0.06944795<br />prova1: 1.408611","density: 0.06867160<br />prova1: 1.394521","density: 0.06790764<br />prova1: 1.380431","density: 0.06715016<br />prova1: 1.366341","density: 0.06640074<br />prova1: 1.352250","density: 0.06566185<br />prova1: 1.338160","density: 0.06492682<br />prova1: 1.324070","density: 0.06420622<br />prova1: 1.309980","density: 0.06348562<br />prova1: 1.295890","density: 0.06278274<br />prova1: 1.281800","density: 0.06208008<br />prova1: 1.267710","density: 0.06139085<br />prova1: 1.253620","density: 0.06070575<br />prova1: 1.239530","density: 0.06002995<br />prova1: 1.225440","density: 0.05936202<br />prova1: 1.211350","density: 0.05869942<br />prova1: 1.197260","density: 0.05804823<br />prova1: 1.183170","density: 0.05739860<br />prova1: 1.169080","density: 0.05676370<br />prova1: 1.154990","density: 0.05612880<br />prova1: 1.140900","density: 0.05550773<br />prova1: 1.126810","density: 0.05488866<br />prova1: 1.112720","density: 0.05427959<br />prova1: 1.098630","density: 0.05367589<br />prova1: 1.084540","density: 0.05307855<br />prova1: 1.070450","density: 0.05248973<br />prova1: 1.056360","density: 0.05190385<br />prova1: 1.042270","density: 0.05132942<br />prova1: 1.028180","density: 0.05075499<br />prova1: 1.014090","density: 0.05019421<br />prova1: 1.000000","density: 0.05019421<br />prova1: 1.000000"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(173,216,230,1)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6],"y":[-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,-0.0101505986554304,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039,0.213162571764039],"text":"xintercept: 6","type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(255,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[7.1],"y":[0.05],"text":"Média de Aprovação","hovertext":"x: 7.1<br />y: 0.05","textfont":{"size":14.6645669291339,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":45.4063926940639,"r":7.30593607305936,"b":41.8264840182648,"l":48.9497716894977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Distribuição das Notas","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.64,8.56],"tickmode":"array","ticktext":["2","4","6","8"],"tickvals":[2,4,6,8],"categoryorder":"array","categoryarray":["2","4","6","8"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Notas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0101505986554304,0.213162571764039],"tickmode":"array","ticktext":["0.00","0.05","0.10","0.15","0.20"],"tickvals":[0,0.05,0.1,0.15,0.2],"categoryorder":"array","categoryarray":["0.00","0.05","0.10","0.15","0.20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Densidade","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8b9f5c009cd3":{"x":{},"type":"scatter"},"8b9f44a64d0":{"xintercept":{}},"8b9f708ccb83":{"x":{},"y":{}}},"cur_data":"8b9f5c009cd3","visdat":{"8b9f5c009cd3":["function (y) ","x"],"8b9f44a64d0":["function (y) ","x"],"8b9f708ccb83":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Foi destacada a reta vertical (em vermelho) na Média de Aprovação da disciplina.
+O que mostra um nível de reprovação alto (aproximadamente 70%).</p>
+<h2 id="palavras-finais">Palavras Finais</h2>
+<p>As razões para esse nível de reprovação são variadas e costumam suscitar muitas discussões.</p>
+<p>Há quem coloque a culpa no professor; há quem coloque a culpa na prova (difícil, com “pegadinhas”, etc); há ainda quem culpe o “pouco” tempo que teve; há quem associe isso ao fato de que cursaram uma disciplina fora de sua maturidade matemática no curso (anteciparam a disciplina) etc.</p>
+<p>Mas, sei que há aqueles que olham para o que fizeram ao longo do tempo que tiveram para estudar nesse primeiro momento; e, reconhecem que não estudaram o suficiente para fazê-la. Nem tampouco procuram o professor da disciplina (antes da semana da prova) para retirar dúvidas.
+Estes, creio eu, ainda possuem chance de recuperar essa nota, visto que ainda temos uma segunda prova; atividades avaliativas (ainda não as corrigi); e, uma prova substitutiva no final do semestre.</p>
+<p>Nem tudo está perdido!
+Agora é o momento de mudar o curso da postura que vocês vinham levando a disciplina.
+Podem contar comigo para os estudos!
+Mas, agora é hora de estudar, estudar e estudar!</p>
+<p>“Enquanto há vida, há esperança.”</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

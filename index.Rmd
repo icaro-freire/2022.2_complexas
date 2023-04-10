@@ -1,0 +1,161 @@
+---
+title: "Variáveis Complexas"
+description: |
+  Pequeno relatório das notas `r emo::ji("wink")`
+site: distill::distill_website
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# carregando pacotes ------------------------------------------------------
+library(ggplot2)
+library(DT)
+library(plotly)
+
+# importando dados --------------------------------------------------------
+notas_prova1 <- readr::read_csv("dados/notas_prova1.csv")
+
+```
+
+## Sobre a Prova 01
+
+Tentarei explanar sobre o resultado da Prova 01. 
+A análise será geral, ou seja, não colocarei o nome de vocês em parte alguma da
+análise. 
+Portanto, esse pequeno relatório não é uma exposição dos resultados individuais (farei isso em sala), mas uma visão geral do resultado/desempenho da turma nessa primeira avaliação.
+
+Inicialmente, vamos sumarisar algumas informações:
+
+```{r}
+notas_prova1 |> 
+  dplyr::summarise(
+    min           = min(prova1),
+    max           = max(prova1),
+    Q1            = quantile(prova1)[2],
+    Q2            = quantile(prova1)[3],
+    Q3            = quantile(prova1)[4],
+    media         = round(mean(prova1), 1),
+    desvio_padrao = round(sd(prova1), 1)
+  ) |> 
+  knitr::kable()
+```
+
+Pela tabela acima, vemos que a nota mínima e a máxima foram, respectivamente,
+$1.0$ e $8.2$. Além disso, a média das notas foi de $4.4$, com desvio padrão de $2.0$. 
+Para entendermos o que são $Q_1, Q_2,\text{ e } Q_3$, chamados _quartis_, vamos lembrar o que é a _mediana_ dos dados. 
+
+Se ordenarmos os valores das notas (são 13 notas), quer de forma decrescente ou crescente, a mediana é o valor central (no caso, o 7º termo). Podemos dizer que 50% das observações estão abaixo da mediana e 50% acima. Ou seja, dividimos o conjunto dados em duas partes.
+
+Ora, podemos expandir um pouco essa ideia e nos perguntarmos: como encontrarmos valores numéricos, cujas posições dividem as obvervações em 4 partes? Para isso, precisamos de três valores: o primeiro divide o conjunto de dados em até 25% das observações; o segundo divide em até 50% (coincidindo com a mediana); e, o terceiro divide o conjunto de dados em até 75% das observações. 
+Esses são o primeiro quartil, $Q_1$; segundo quartil, $Q_2$ (mediana); e, o terceito quartil, $Q_3$.
+
+Sabendo disso, podemos voltar na tabela e verificarmos que $25\%$ das notas estão abaixo de $3.1$ pontos; $50\%$ abaixo de $3.8$ pontos; e, $75\%$ estão abaixo de $6.0$ pontos. 
+
+Existe um tipo de gráfico que resume essas informações: _boxplot_ (ou _diagrama de caixa_). Veja abaixo:
+
+### Boxplot (Diagrama de Caixas)
+
+```{r}
+boxplot_notas <- notas_prova1 |> 
+  ggplot() +
+  aes(x = "", y = prova1) +
+  geom_boxplot(fill = "lightblue", width = 0.5) + 
+  labs(
+    title = "Boxplot das Notas",
+    subtitle = "(Variáveis Complexas - 2022.2)",
+    x = "Prova 1",
+    y = "Notas"
+  ) +
+  theme_minimal()
+
+boxplot_notas
+```
+
+Na "caixa", de baixo para cima, o primeiro segmento horizontal é o $Q_1$; o segundo 
+segmento horizontal é o $Q_2$ (ou seja, a _mediana_); e, o terceiro segmento horizontal é o $Q_3$.
+A linha vertical, abaixo de $Q_1$, vai até $1.5$ vezes o _intervalo interquartil_ ($IQ$). Este último é a diferença entre o terceiro e o primeiro quartil ($IQ = Q_3 - Q_1$).
+Como $IQ = 6 - 3.1 = 2.9 $, a linha vertical poderia ir até $Q_3 - 1.5 \cdot IQ = 3.1 - 1.5 \cdot 2.9 = -1.25 $. Entretanto, como a menor nota foi $1.0$, paramos nela.
+De forma semelhante, a linha vertical acima de $Q_3$ poderia ir até $Q_3 + 1.5\cdot IQ = 6 + 1.5 \cdot 2.9 = 10.35$. Mas, como a maior nota desses dados foi $8.2$, paramos nela.
+Se existisse algum ponto abaixo de $Q_1 - 1.5\cdot IQ$ ou acima de $Q_3 + 1.5\cdot IQ$, diríamos que esses pontos são _outliers_ (pontos extremos, ou "fora da curva").
+
+Do exposto, observando novamente o gráfico, podemos notar que a mediana está próxima ao primeiro quartil.
+Isso pode significar que há uma concentração de notas nesse intervalo (entre $1$ e $4$). Consequentemente, a parte superior da caixa, mostra uma maior dispersão dos dados, ou seja, poucas notas espalham-se entre $4$ e $8$. 
+
+Para melhorar essa visualização, valor inserir no _boxplot_ pontos que representam as 13 notas (passe o _mouse_ sobre o gráfico para colher informações).
+
+```{r}
+boxplot_dinamico <- boxplot_notas +
+  geom_jitter(color = "red")
+
+ggplotly(boxplot_dinamico)
+```
+
+Claramente, o resultado não um cenário ideal que um professor desejaria aos seus alunos. 
+Mas, percebe-se que não é algo atípico, visto que espera-se que existam poucas notas muito baixas; poucas notas muito altas; e que a maioria das notas fiquem próximas à média.
+Em outras palavras, esperamos que, por conta da aleatoriedade, essa distribuição seja normal (ou Gaussiana). 
+
+### Teste de Normalidade (Shapiro–Wilk)
+
+Existem testes para verificação da normalidade. Um bastante conhecido e eficiente é o Teste de Shapiro–Wilk.
+Basicamente ele testa as seguintes hipóteses:
+
+$$\begin{align*} H_0: &\text{ Os dados possuem distribuição normal}\\ H_1: &\text{ Os dados não seguem a distribuição normal}\end{align*}$$
+
+Se $p < 0.05$, o teste indica a rejeição de $H_0$.
+
+Calculando Shapiro-Wilk para os valores das notas, encontramos:
+
+```{r}
+shapiro.test(notas_prova1$prova1)
+```
+
+Note que $p = 0.3475 > 0.05$. Logo, **não** rejeitamos $H_0$. O que mostra a normalidade dos dados.
+
+### Gráfico de Densidade
+
+Como os dados são normais, uma forma de visualização apropriada é o gráfico de densidade. 
+Se você lembra do Histograma, não terá dificuldades em interpretar o Gráfico de Densidade, visto que é possível entendê-lo como uma "suavização" do histograma.
+
+No gráfico, a área abaixo da curva é 1. Portanto, o eixo y é dimensionado para isso.
+
+```{r}
+densidade_notas <- notas_prova1 |> 
+  ggplot() +
+  aes(x = prova1) +
+  geom_density(fill = "lightblue") +
+  geom_vline(aes(xintercept = 6), color = "red") +
+  annotate(
+    "text", x = 7.1, y = 0.05, label = "Média de Aprovação", color = "red"
+  ) +
+  labs(
+    x = "Notas",
+    y = "Densidade",
+    title = "Distribuição das Notas",
+    subtitle = "(gráfico de densidade)"
+  ) +
+  theme_minimal()
+
+ggplotly(densidade_notas)
+```
+
+Foi destacada a reta vertical (em vermelho) na Média de Aprovação da disciplina. 
+O que mostra um nível de reprovação alto (aproximadamente 70%).
+
+## Palavras Finais
+
+As razões para esse nível de reprovação são variadas e costumam suscitar muitas discussões. 
+
+Há quem coloque a culpa no professor; há quem coloque a culpa na prova (difícil, com "pegadinhas", etc); há ainda quem culpe o "pouco" tempo que teve; há quem associe isso ao fato de que cursaram uma disciplina fora de sua maturidade matemática no curso (anteciparam a disciplina) etc. 
+
+Mas, sei que há aqueles que olham para o que fizeram ao longo do tempo que tiveram para estudar nesse primeiro momento; e, reconhecem que não estudaram o suficiente para fazê-la. Nem tampouco procuram o professor da disciplina (antes da semana da prova) para retirar dúvidas. 
+Estes, creio eu, ainda possuem chance de recuperar essa nota, visto que ainda temos uma segunda prova; atividades avaliativas (ainda não as corrigi); e, uma prova substitutiva no final do semestre. 
+
+Nem tudo está perdido!
+Agora é o momento de mudar o curso da postura que vocês vinham levando a disciplina. 
+Podem contar comigo para os estudos!
+Mas, agora é hora de estudar, estudar e estudar!
+
+"Enquanto há vida, há esperança." 

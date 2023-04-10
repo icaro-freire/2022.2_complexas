@@ -1,0 +1,17 @@
+name: "."
+title: "Complexas 2022.2"
+description: |
+  Introdução às Funções de uma Variável Complexa
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Sobre"
+      href: about.html
+    - icon: fab fa-github 
+      href: https://github.com/icaro-freire/2022.2_complexas
+output:
+  distill::distill_article:
+    toc: true
+

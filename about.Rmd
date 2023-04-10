@@ -1,0 +1,18 @@
+---
+title: "Sobre esse site"
+description: |
+  "Aprendei a tabuada sem coplexo de doutor. Que jamais uma coisa criada é maior que o Criador."
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Este _site_  é destinado à apresentação das notas da disciplina **Funções de uma Variável Complexa** do semestre de 2022.2, do [Centro de Formação de Professores][CFP] da [Universidade Federal do Recôncavo da Bahia][UFRB].
+
+[CFP]: https://www.ufrb.edu.br/cfp/
+[UFRB]: https://www.ufrb.edu.br/portal/
+
+Para ver o repositório desse site, acesse:
+
+[ `r emo::ji("link")` https://github.com/icaro-freire/2022.2_complexas](https://github.com/icaro-freire/2022.2_complexas)
